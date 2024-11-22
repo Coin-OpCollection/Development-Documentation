@@ -200,7 +200,7 @@ Now, let's consider a more complicated and practical example. Let's suppose that
 - Take the lower 3 bits, and concatenate them with the remainder of the shifted contents.
 - Report this final value to the CPU.
 
-![alt text](images/16bitvs1bitaddr.png)
+<img src="images/16bitvs1bitaddr.png" width="500">
 
 So, there are possibilities where straddling can occur in this scheme, and you need to perform multiple reads in those cases, and concatenate the appropriate bits to return back to the CPU. This entire scheme of determining the correct field to mask or concatenate off for both reads and writes is handled by the memory controllers that layer on top of eachother in the FPGA core. This way, the CPU has a 1-bit interface to a 16-bit memory.
 
@@ -256,6 +256,10 @@ The write to the DMA_COMMAND register carries with it the DMA mode under which t
 |9, B | If the pixel isn't blank, draw with the value of DMA_COLOR, else draw data from Image ROM. |
 |C, D, E, F | Draw all pixels regardless with the value of DMA_COLOR. |
 
+After the drawing operation is completed, an interrupt is triggered under LINT1. This signals to the CPU program that the DMA operation is done, and usually what happens is the CPU program goes to the next item in the queue.
+
+Note that because DMA requires interrupts to be signaled to report back status (the program goes in a loop waiting for DMA to complete usually), and DMA usually results in a chain or queue of objects being drawn one after the other, a TRAP instruction usually executes to kick off the workflow. So, at the start of queue processing, TRAP is executed to signal a DMA interrupt to start off the process, and then subsequent interrupt triggers will result in items being processed from the queue one by one, until the end (a counter is kept).
+
 ##### **Caveats in Drawing Process**
 
 The drawing process is basically starting at the `DMA_XSTART` (clipped) and `DMA_YSTART` (clipped) and `DMA_OFFSET` (clipped), loop over x and y and increment by DMA_ROWBYTES every time x reaches the `DMA_WIDTH` (clipped). End the operation when `DMA_HEIGHT` is reached.
@@ -303,3 +307,31 @@ I was able to make this work on the Analogue Pocket, because the Pocket, unlike 
 The statistical inferencing part is a new thing I designed that isn't apart of the original board. Actually most of this isn't in the original architecture, but it will be for MARS as it has the necessary memory throughput and resources to support it. By statistical inferencing, I mean there is code that predicts to a high degree of certainty what an adjacent pixel's palette ID will be based on local pixels. This is necessary to do to cut down on SDRAM accesses and make the system highly reliant more on the BRAM accesses which have a much higher throughput and response time.
 
 ### **Sound**
+
+The Z-Unit only operates a single game, NARC, and thus only has a single sound board based on CVSD speech. The Y-Unit, by comparison, has 2 sound boards that cover the 8 games. One is a variant of the NARC sound board, based in CVSD, and the other is based on using ADPCM for speech that is much more simplified.
+
+<img src="images/Scan_20241121 (31)-topaz-enhance-4x-cropped.png" width="800">
+
+#### **Interface**
+
+The sound board operates independently of the main CPU board, and has a ribbon cable interface (known as a talkback interface) under which it receives and reports back command statuses to the CPU. 
+
+There are 2 CPUs on the board, both 6809 processors. One is called the Master, and one is called the Slave.
+
+Let's take a look at the interfaces of this board, internally.
+
+#### **Master**
+
+<img src="images/Scan_20241121 (33)-topaz-enhance-4x-cropped.png" width="800">
+
+The Master CPU is responsible for both retrieving the command from the TMS34010 CPU through the talkback interface ribbon cable, and also playing FM Sounds through the YM2151. It delegates tasks to the slave CPU by an internal sound latch located on the board.
+
+#### **Slave**
+
+<img src="images/Scan_20241121 (35)-topaz-enhance-4x-cropped.png" width="800">
+
+The Slave CPU is responsible for primarily speech and most sound effects (certain FX are actually FM based in NARC). It outputs sound via DAC for some sounds, and also has a HC55536 CVSD module for actual speech. Before ADPCM became popular for speech playback, CVSD was the technology they employed to play speech.
+
+#### **Reporting Back to CPU**
+
+Both the master and the slave report back to the CPU via the talkback ribbon interface. Although, in my testing, I am not sure the program actually does anything with this information. I completely omitted it and nothing bad happened. So, it tells me that the sounds and audio in the game operate independently and are merely instructed to do play or stop via the main CPU program.
