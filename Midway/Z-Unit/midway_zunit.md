@@ -6,7 +6,7 @@ This document is a schematics-based overview of the Midway Z-Unit System, which 
 Unfortunately, with the way everything has become now at days, I have to state that it is perfectly OK to link to this site and use materials from it ONLY if proper attribution is made. If you want to do something else with it and have any doubts, please contact us and we can answer. But please, do not be like certain people and just randomly create YouTube videos and posts without proper attribution, and always link back to the source.
 
 ## **High Level Architecture**
-<img src="images/Scan_20241121-topaz-enhance-4x-cropped.png" width="1200">
+<img src="images/system_overview.png" width="1200">
 
 The Z-Unit architecture is composed totally of 4 boards.
 - Main, CPU Board
@@ -19,7 +19,7 @@ All of these boards must be connected to eachother in a specific way, as outline
 As it is very difficult to do this, and I might be missing some of the interface cables, during development, I did not hook up the board and observe it normally as I usually do as it was impractical for me to do so. I physically inspected the boards and reviewed certain parts as development commenced, but did not go through the expense of actually hooking things up. The transformer/ power supply I have does not support NARC as it needs enough power to power all the boards.
 
 ### **Main CPU Board**
-<img src="images/Scan_20241121 (5)-topaz-enhance-4x-cropped.png" width="800">
+<img src="images/main_cpu_board_overview.png" width="800">
 
 #### **Bill of Materials**
 |   Item No. | Part No.      | Part Description   | Description                 |   Qty |
@@ -76,7 +76,7 @@ Color RAM, is really referring to the source of the data where the master palett
 All settings for the game persist in CMOS RAM. In order to do this, nonvolatile memory is kept alive by a Lithium Battery while the system does not have power to it. This is common in most computer motherboards now at days, and even back then for the BIOS. The FPGA Core of course saves CMOS RAM, persisting it on the SD Card, and loads it back up when the core is started.
 
 ### Image/ ROM Board
-<img src="images/Scan_20241121 (18)-topaz-enhance-4x-cropped.png" width="800">
+<img src="images/image_rom_board_overview.png" width="800">
 
 #### Bill of Materials
 |   Item No. | Part No.      | Part Description   | Description                 |   Qty |
@@ -89,7 +89,7 @@ All settings for the game persist in CMOS RAM. In order to do this, nonvolatile 
 The entire board contains the Image ROM Data for the game. That is, the bitmap data that has the sprites, backgrounds, objects, etc. This has a 32 bit and 16 bit interface to it's respective connected components. The 32 bit interface is for the DMA Chip, and the 16 bit interface is for the CPU. Whenever possible and practical, the CPU too gets involved in pulling data from the Image ROM and using that either for collision detection, plotting pixels, or other sorts of operations.
 
 ### **I/O Board**
-<img src="images/Scan_20241121 (27)-topaz-enhance-4x-cropped.png" width="800">
+<img src="images/io_board_overview.png" width="800">
 
 #### **Bill of Materials**
 |   Item No. | Part No.      | Part Description             | Description                                |   Qty |
@@ -113,7 +113,7 @@ The entire board contains the Image ROM Data for the game. That is, the bitmap d
 Nothing special with this, all this board does is handle the input interface for player 1 and 2.
 
 ### **Sound Board**
-<img src="images/Scan_20241121 (31)-topaz-enhance-4x-cropped.png" width="800">
+<img src="images/sound_board_overview.png" width="800">
 
 #### **Bill of Materials**
 | Item No. | Part No.      | Part Designation               | Description                     | Qty |
@@ -147,7 +147,7 @@ This is something else that's not on the printed BOM, but there is another DAC o
 
 Usually, we start our implementation with the main CPU of the system. This brings us to the first schematic below:
 
-<img src="images/Scan_20241121 (7)-topaz-enhance-4x-cropped.png" width="1600">
+<img src="images/main_cpu_1.png" width="1600">
 
 Let's talk about the HD* pins - that's the host data bus of the TMS34010 CPU. The host data bus of the CPU allows access to the GSP/IO registers of the CPU in an addressable way to devices outside the CPU. So, for example, let's say you had a situation where the hardware needs to write to the GSP registers from outside the CPU, it can do that from the host data bus. Another use case is if you have another CPU that is operating alongside this CPU, like a 68k or something - that would use the host data bus as an interface too to do stuff.
 
@@ -157,9 +157,9 @@ Next, the LAD* pins go to the local address bus. This is the primary interface o
 
 One more thing to note about this shot in the schematic is that you can see the video blanking signals going out from the CPU pins. It means that the CPU generates the video signals in this case. It is possible to configure the TMS with something external, but why include unnecessary video circuitry if it's already in the chip?
 
-<img src="images/Scan_20241121 (8)-topaz-enhance-4x-cropped.png" width="400">
-<img src="images/Scan_20241121 (9)-topaz-enhance-4x-cropped.png" width="400">
-<img src="images/Scan_20241121 (10)-topaz-enhance-4x-cropped.png" width="400">
+<img src="images/main_cpu_2.png" width="400">
+<img src="images/main_cpu_3.png" width="400">
+<img src="images/main_cpu_4.png" width="400">
 
 These next few areas in the schematic above show how the local address bus connects and gets arbitrated to various devices like RAMs and sound, etc. Usually when we do the core, we don't literally model every single possible thing as it is inefficient and takes up LE. We instead try to use these diagrams to figure out what the source and destination are, and how things get arbitrated. Then, we simplify and model that logic.
 
@@ -167,7 +167,7 @@ These next few areas in the schematic above show how the local address bus conne
 
 This next piece in the schematic concerns DMA, how it connects into other things and what it's outputs are:
 
-<img src="images/Scan_20241121 (11)-topaz-enhance-4x-cropped.png" width="800">
+<img src="images/main_cpu_5.png" width="800">
 
 First of all, you can see that the U77 DMA chip has a line to the VRAM, labeled VIDEO ADDR BUS and VIDEO DATA BUS. It also has a line to the Image ROM Data as I have mentioned above. The RAS/ CAS lines are also indicative that this chip has a controller embedded within it to handle writes to the VRAM on its own. 
 
@@ -285,9 +285,9 @@ Everything is high priority! So what do we do here? The original board for the g
 
 The way the object palette bus and the video data buses were designed in combination with the split memory controllers and shift buffer memory was extremely fast for the time. Generally, a lot of the graphics in the games of the Z and Y unit are achieved via fast memory transfers from ROM to RAM. It is different than earlier games which relied on a combination of some data and CPU operations to drive the use of the data.
 
-<img src="images/Scan_20241121 (12)-topaz-enhance-4x-cropped.png" width="400">
-<img src="images/Scan_20241121 (13)-topaz-enhance-4x-cropped.png" width="400">
-<img src="images/Scan_20241121 (14)-topaz-enhance-4x-cropped.png" width="400">
+<img src="images/main_cpu_6.png" width="400">
+<img src="images/main_cpu_7.png" width="400">
+<img src="images/main_cpu_8.png" width="400">
 
 The sections above cover the Video and Object Palette buses and the replication scheme of the palette.
 
@@ -310,7 +310,7 @@ The statistical inferencing part is a new thing I designed that isn't apart of t
 
 The Z-Unit only operates a single game, NARC, and thus only has a single sound board based on CVSD speech. The Y-Unit, by comparison, has 2 sound boards that cover the 8 games. One is a variant of the NARC sound board, based in CVSD, and the other is based on using ADPCM for speech that is much more simplified.
 
-<img src="images/Scan_20241121 (31)-topaz-enhance-4x-cropped.png" width="800">
+<img src="images/sound_board_overview.png" width="800">
 
 #### **Interface**
 
@@ -322,13 +322,13 @@ Let's take a look at the interfaces of this board, internally.
 
 #### **Master**
 
-<img src="images/Scan_20241121 (33)-topaz-enhance-4x-cropped.png" width="800">
+<img src="images/sound_1.png" width="800">
 
 The Master CPU is responsible for both retrieving the command from the TMS34010 CPU through the talkback interface ribbon cable, and also playing FM Sounds through the YM2151. It delegates tasks to the slave CPU by an internal sound latch located on the board.
 
 #### **Slave**
 
-<img src="images/Scan_20241121 (35)-topaz-enhance-4x-cropped.png" width="800">
+<img src="images/sound_2.png" width="800">
 
 The Slave CPU is responsible for primarily speech and most sound effects (certain FX are actually FM based in NARC). It outputs sound via DAC for some sounds, and also has a HC55536 CVSD module for actual speech. Before ADPCM became popular for speech playback, CVSD was the technology they employed to play speech.
 
