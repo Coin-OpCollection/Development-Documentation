@@ -171,3 +171,5 @@ Implementation wise, I consider this board to be the hardest of the 3 sound boar
 The ADPCM Sound board is probably the easiest of the sound boards to implement. It uses 1 6809 as well, and uses direct interfacing to the components rather than using a middleman PIA. It also has the same BONG DAC, YM2151 and for the ADPCM speech, an MSM6295 OKI.
 
 Again, nothing really special about this from an implementation perspective, it is pretty straightforward and standard at that.
+
+[TODO: BOMs and component information for all boards]
