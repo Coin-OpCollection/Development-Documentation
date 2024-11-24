@@ -124,4 +124,61 @@ The answer is that this is a more efficient system than the conventional one. Fi
 
 Below is an illustration of these concepts overlaid on a game screen:
 
-[TODO: add game screen and 16x16 overlay]
+![Technos16 Layers](images/wwfwfest-11-24-123124.png)
+
+I have overlayed a grid on Hulk Hogan above to illustrate the concept of the tiles and vertical column chains. I have also pointed out the different things that are considered objects in this scene and what is considered background and foreground scroll layers. The side ropes move when the wrestlers go against them, so those are indeed objects (or sprites). The mat and top and bottom ropes do not move so those are scroll layers that simply pan back and forth on the 512x512 grid. The crowd also pans and scrolls, and is another grid. Finally, the text at the bottom that indicates your credits is considered a text layer. The Objects are rendered from bottom right to top left in columns, which as I indicated, is more efficient for clipping purposes.
+
+#### **Text Layer**
+One more thing I will briefly touch on is the text layer which was added for Wrestlefest. There is nothing special about this layer, except that it is a fixed grid broken up into 8x8 tile segments. There is a separate text ROM that has the graphics associated with the layer and it's 8x8 tiles.
+
+According to the memory size, there is a maximum of 64 tiles you can have across. To render a letter, each memory address in the text VRAM indicates what character is supposed to be drawn from the ROM in that grid position. Again, it is a fixed grid. The letters must align with the grid. There is no scrolling or manipulation on this.
+
+#### **Priority & Combination**
+What was discussed above is the method by which the individual layers get rendered. However, the individual layers are apart of a whole system in which one single, combined image is displayed. There are multiple layers to this image, and there are pre-determined priorities that are adhered to when deciding which pixel of which layer should be on top of one another.
+
+In the system, there is a register that is written to in order to determine the layer order.
+
+Below is a list of the modes that exist in wrestlefest:
+
+|Mode|Layer Order (backmost to frontmost)|
+|-|-|
+|0x7B|BG0, BG1, SPR, TEXT|
+|0x7C|BG0, SPR, BG1, TEXT|
+|0x78|BG1, BG0, SPR, TEXT|
+
+And there are only 2 modes in Combatribes:
+
+|Mode|Layer Order (backmost to frontmost)|
+|-|-|
+|Default|BG, FG, SPR|
+|0x01|FG, SPR, BG|
+
+Finally, there are 3 in Double Dragon 3:
+
+|Mode|Layer Order (backmost to frontmost)|
+|-|-|
+|Default|BG, SPR, FG|
+|0x16|BG, FG, SPR|
+|0x17|FG, BG, SPR|
+
+There are a couple more things about the graphics and rendering I would like to touch on, which are some nuances. In addition to the video register determining what the layer priority mode is as above, it also determines if either the background or foreground layers in that priority mode are transparent or not. If it's not, and it's opaque, then all pixels are drawn regardless on that layer. If it is, then only pixels that are not blank get drawn.
+
+From a color mixer perspective, Combatribes is 4bpp, however, Double Dragon 3 is 5bpp and Wrestlefest is 4bpp. This information is essential in converting the palette color to the proper value for displaying in 8 bit RGB like we normally do.
+
+In addition, I am not sure why this is, but for some reason I need to draw one more extra horizontal pixel in order for the entire screen to render properly or else what happens is things wrap around, and you have a junk pixel column on either side of the screen. Sometimes this is intentional as overscan, but thought I would mention it as a quirk.
+
+### **Inputs**
+The next thing I want to touch on are the inputs. Now, this game operates as a pretty normal 68k processor game with a standard setup for the address bus like other games do, but the inputs have some nuances to them.
+
+First of all, to note, the 68k processor has a 16 bit bus that can take in or output 16 bits at a time, with a byte mask. The UDS and LDS determine what byte should be taken into account when consuming or outputting the data. So, as it happens, to save on space and routing on the board, Technos repurposed addresses for multiple uses. The use of them depends on whether the request is in byte mode (ie. only one of UDS or LDS active) or word mode (both UDS and LDS active together). So this is something you have to pay very careful attention to in wiring the input system up and make sure you don't mix up both purposes, otherwise inputs will be very screwed up and things wont work properly.
+
+Secondly, one of the interrupts on the system is used as an input polling routine. For this, I had to measure the boards to get the proper frequency at which the interrupt triggers. I suppose you can fake it like the current emulators do, and use a fixed value for all 3 games, but technically that's not correct and if the polling is slower than it is on the real board, you may encounter latency in gameplay. It may not necessarily be noticeable by a player, but still, it adds accuracy and value to use the proper polling frequency.
+
+Wrestlefest is 1.63Khz and Double Dragon 3 is 3.91Khz. See how much they vary? I do not have Combatribes, but since it is mostly the same as Double Dragon 3, we used the same value as Double Dragon 3.
+
+### **Audio**
+Lastly, I want to mention the audio setup used for the games. The audio setup is fairly standard and straightforward with nothing really special. Below is the hardware used:
+
+- Z80 CPU
+- MSM6295 OKI
+- YM2151
