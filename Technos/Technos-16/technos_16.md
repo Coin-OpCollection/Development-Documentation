@@ -112,3 +112,16 @@ Like other hardware sprite engines, each sprite is drawn on a line basis. Like t
 Once that is determined, I pull the object ID from live Sprite VRAM (not cached), get the object offset from the Object Graphics ROM and then proceed to draw the pixels out similar to the background layer process above. Then, I increment and do the whole process over again until I reach 511 and end the cycle. Everything has to be checked to determine relevance to the current scanline.
 
 ##### **Coordinate System**
+One really interesting and annoying thing about this platform is that the X and Y positioning that the game gives you in the Sprite RAM refers to a location in the bottom right hand corner of the starting tile. Normally, coordinate systems in hardware sprite games refer to the top left and extend right and down. It is the opposite here.
+
+So, let's take a simple example here. Suppose you have a sprite you have to draw, and it says to draw it at (200,100). That's at 200 X, and 100 Y. The chain amount is 5.
+
+What that means is the bottom right corner of the sprite is at 200,100 and extends to 100 + (5*16). In the system, things are drawn in columns from right to left instead of left to right, so the chain amount refers to a vertical chain of tiles. Each tile is 16x16 pixels. The top left starting position for the tile is in fact 200-16, 100-16.
+
+Indeed, not common, but there are some hardware based sprite systems like this out there, but it's not as common as when the origin is in the top left corner and the coordinates are based from the top left of the tile or object. But why did they do this? It does not make life any easier for the developers, but is it efficient?
+
+The answer is that this is a more efficient system than the conventional one. First of all, since stuff starts in the bottom right and grows to the top left, clipping sprites becomes a lot easier. This in turn reduces the calculations that have to be done to determine the actual position of the sprite and drawing the necessary tiles that make it up. Since most games scroll from left to right, it's a lot easier to calculate things, as when objects hit the left wall, no extra calculations have to be done to stop the drawing process as things are done in singular columns right to left.
+
+Below is an illustration of these concepts overlaid on a game screen:
+
+[TODO: add game screen and 16x16 overlay]
