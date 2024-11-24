@@ -116,7 +116,7 @@ One really interesting and annoying thing about this platform is that the X and 
 
 So, let's take a simple example here. Suppose you have a sprite you have to draw, and it says to draw it at (200,100). That's at 200 X, and 100 Y. The chain amount is 5.
 
-What that means is the bottom right corner of the sprite is at 200,100 and extends to 100 + (5*16). In the system, things are drawn in columns from right to left instead of left to right, so the chain amount refers to a vertical chain of tiles. Each tile is 16x16 pixels. The top left starting position for the tile is in fact 200-16, 100-16.
+What that means is the bottom right corner of the sprite is at 200,100 and extends to 100 - (5*16). In the system, things are drawn in columns from right to left instead of left to right, so the chain amount refers to a vertical chain of tiles. Each tile is 16x16 pixels. The top left starting position for the tile is in fact 200-16, 100-16.
 
 Indeed, not common, but there are some hardware based sprite systems like this out there, but it's not as common as when the origin is in the top left corner and the coordinates are based from the top left of the tile or object. But why did they do this? It does not make life any easier for the developers, but is it efficient?
 
