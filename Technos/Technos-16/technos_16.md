@@ -4,3 +4,111 @@ This document is a technical overview of the Technos 16-bit system. It covers th
 
 ### **Legal Mumbo-Jumbo**
 Unfortunately, with the way everything has become now at days, I have to state that it is perfectly OK to link to this site and use materials from it ONLY if proper attribution is made. If you want to do something else with it and have any doubts, please contact us and we can answer. But please, do not be like certain people and just randomly create YouTube videos and posts without proper attribution, and always link back to the source.
+
+## **High Level Architecture**
+The Technos 16-bit system is comprised of only a single board containing all the necessary components for graphics and sound production. It has a number of custom chips, mostly having to deal with RLE decompression, buffering and graphics engine stuff.
+
+There are 3 games in this series only, however, there are a number of changes that happened from a hardware perspective between the 3 games. the changes were mostly evolutional though, adding additional capability for the graphics engine. The rest is mostly the same.
+
+### **Graphics Data**
+The graphics data was a problem to deal with in the FPGA Core. The issue is that they had this custom chip that was responsible for transferring graphics data from the graphics rom and decompressing and assembling it back again in addition to caching stuff. They used a form of RLE compression, and they split the data into separate channels (or planes). There are a total of 4 channels, and each of the channels is located in a disparate section of the ROM and it's not contiguous at all. However, as for the rest of the system design, the wizards of Technos were highly efficient and designed a very efficient system that works well. They saved about 50% of the size by splitting and compressing the data.
+
+Doing this sort of thing is not really efficient from an FPGA perspective. First of all, for each graphics data you pull, you would have to at least do 4 reads for each of the 4 channels of data for the object or background. Then, you would have to figure out how to assemble that and present it properly. It is more efficient to just reorder the data upfront in the decompressed and assembled format, and base the core off of that, which is what I ended up doing.
+
+I created a python script to decrunch and repack the rom data after the MRA assembly step. It increases the size of the ROM data of course, which has to be accounted for in the loader, but it works well, and no unnecessary stuff in the core itself.
+
+### **Rendering Engine**
+The graphics for the game are produced by hardware. There is a custom chip for rendering tiles and graphics on the screen in a special coordinate system.
+
+Combatribes and Double Dragon 3 had 3 total layers for which graphics could be presented, but Wrestlefest adds an additional text layer on top which is used for presenting text on screen.
+
+- Foreground Layer
+- Background Layer
+- Sprite Layer
+- Text Layer (Wrestlefest Only)
+
+I will go through all the technicals and calculations across the layers below in detail as it is the meat of the system as a whole:
+
+#### **Foreground Layer**
+The foreground layer is also called the bg0 layer in Wrestlefest. 
+
+- 512x512 pixel grid
+- 32 tiles x 32 tiles total
+- 16x16 pixel tiles each
+
+The Foreground Layer is a 512x512 pixel grid that gets wrapped around to the active resolution, 320x240. There are 2 registers that control the positioning of the grid, `FGSCRX` and `FGSCRY`. 
+
+At the start of the drawing process, the 2 positioning registers are latched for the pending draw operation. Then, the base of the line is calculated by taking the current y tile index, multiplying it by 16 and subtracting the latched FGSCRY value from it.
+
+##### **Drawing Scroll Layers**
+It is important to note a couple of things here. First of all, for all draw operations, we focus on drawing a single line to a line buffer. We do not draw entire frames or multiple lines at once as there is no time to do that in the interval before the next line. Secondly, for the scroll layers, we count things according to a tile grid index, and convert that to a pixel and then adjust it.
+
+##### **Find Y Tile Index**
+At the start of the draw operation, both X and Y are set to 0. We must iterate through X and Y up to 32 because there are 32 tiles across and 32 tiles down. Each tile is 16x16, so that's why we multiply by 16 when we "hop" over a tile. Finally, we subtract the FGSCRY value from the current Y pixel amount because if you have a 512x512 grid, and it has to be cropped to 320x240, what is supposed to appear on line N in the active resolution is the grid, shifted none, up or down some amount - that's what the scroll register value determines, how much the grid is supposed to be offset. A summary of the steps appears below:
+
+- Latch the scroll X and Y values at the start of the draw line operation.
+- For each value 0-32, multiply them by 16 and subtract the FGSCRY value.
+- FGSCRY is always a positive value, so if FGSCRY is 0, it means the first line on the screen corresponds to 0, and the last line corresponds to 239. Lines 240 to 511 do not show. However, if the FGSCRY value is greater than 0, it means that the first line on the screen corresponds to FGSCRY and the last line on the screen corresponds to FGSCRY + 240. The grid has to be shifted up to align with the active resolution - that's why we subtract.
+- Next, the post-subtracted value is is checked if it is less than -16 or not. If it is, then we add 512. The reason why is because the specification for the 512x512 grid is to wrap around itself on both axes. By adding 512, we have effectively taken the amount cut out by the scroll value and overflowed it on to the end of the 512.
+- Finally, we check the calculated value to see if it is in the range of the line to be drawn from the line counter. Does the line we care about fall in the bounds of the start of this tile to the end of this tile?
+- If it does not, increment Y and try again with the next tile index.
+
+##### **Find X Tile Index**
+The steps above concern finding the starting tile on the Y axis in the grid that corresponds to the line to be drawn in this line. Now, we have to do something similar to the X in that we have to apply the scroll offset first, shift the grid left or right, and then draw from there.
+
+Again, if the calculated value is less than -16, we add 512 to the value to wrap the cut part to the end of the grid as there is a wraparound x/y specification for the layers.
+
+Once the starting X and Y tile index is found and clipping has been applied as the above, then the starting offset of that tile can be retrieved in the Foreground VRAM.
+
+##### **Retrieving and Applying the Metadata**
+The Foreground VRAM is organized in 16 bit addressing, and each tile metadata takes up 32 bits. Therefore, the starting position would be designated by {y_tile_index, x_tile_index} * 2, as each tile takes up 32 bits.
+
+So, knowing the address in the Foreground VRAM, you can start to retrieve the metadata of the starting tile.
+
+From here, we have a couple of differences between Wrestlefest and The Combatribes/ DD3 boards.
+
+The original revision of the graphics engine had only support for flips on the x-axis, but the newer board for Wrestlefest can support flips on both axes. These appear on bits 6 for x and 7 for y of the metadata.
+
+Secondly, you have a palette id which is the lower 4 bits of the metadata, shifted left by the color depth (it is mentioned that it is 4 channels above), plus a palette offset for the layer.
+
+Lastly, the metadata tells you the graphics rom address starting point for that particular data. A Y offset is added to this to get the particular line for that tile data.
+
+Once all that is in place, a request is made to get the tile data from the Background Tile ROM. The graphics data are separated by their purpose, so it is easy to get the data out and put it in the line buffer.
+
+#### **Background Layer**
+The Background Layer isn't really much different than the Foreground Layer above. The same techniques still apply, but the layer does not have x or y flipping.
+
+In addition, the metadata only takes up 16 bits as opposed to 32 bits in the Foreground Layer. It is only inclusive of a palette id and a rom offset for which to retrieve the data. At the end of the day, the data is gotten from the Background ROM and put into the line buffer.
+
+#### **Sprite Layer**
+The sprite layer is a lot more complicated than the background layers in the system.
+
+##### **Metadata**
+First of all, let's talk about the properties or metadata of a sprite. For the background layers we had the ROM address, flipping and palette id. By comparison, the sprite metadata is a lot more extensive and covers 16 bytes total. The properties include:
+
+- Sprite X and Y position
+- Palette ID
+- Flip X and Y
+- Chain Sequence Amount
+- Enable
+- Object ID
+
+All of these properties are critical to drawing any one sprite on screen at any given time. Since it is fairly impractical to pull 16 bytes every single time a sprite needs to be drawn, what I did is setup several caches to reorganize the data in different segments.
+
+As writes occur to the sprite RAM, what I can do is use the lower 3 bits of the address to determine what property is being changed, and direct that data to the appropriate cache.
+
+- 2nd byte contains the MSB of the Y position in addition to the sprite chain sequence amount, MSB of the X position, enable and flip status.
+- 1st byte contains the lower part of the Y position.
+- 5th byte contains the palette ID.
+- 6th byte contains the lower part of the X position.
+
+All of these properties are pulled at the start of a drawing sequence in preparation.
+
+##### **Drawing Sequence**
+There can be a total of 512 sprites at any given time, and that's the amount that the memory indicates is supported. Of course, I don't think Technos ever went that far, but it was certainly possible technically to do.
+
+Like other hardware sprite engines, each sprite is drawn on a line basis. Like the background layers, we must iterate through all the sprite indices to determine which sprites intersect the current scanline we are on - and only draw the lines of those tiles. Each tile in the system is 16x16 like the background layers. For each sprite, I check, considering the X and Y position of the sprite in addition to the size of the sprite and clipping, whether it is supposed to be drawn on this scanline or not. I also check if it is enabled according to the property metadata for the sprite cached.
+
+Once that is determined, I pull the object ID from live Sprite VRAM (not cached), get the object offset from the Object Graphics ROM and then proceed to draw the pixels out similar to the background layer process above. Then, I increment and do the whole process over again until I reach 511 and end the cycle. Everything has to be checked to determine relevance to the current scanline.
+
+##### **Coordinate System**
