@@ -27,7 +27,9 @@ Combatribes and Double Dragon 3 had 3 total layers for which graphics could be p
 - Sprite Layer
 - Text Layer (Wrestlefest Only)
 
-I will go through all the technicals and calculations across the layers below in detail as it is the meat of the system as a whole:
+I will go through all the technicals and calculations across the layers below in detail as it is the meat of the system as a whole.
+
+It is also important to note that all layers are double buffered in the system.
 
 #### **Foreground Layer**
 The foreground layer is also called the bg0 layer in Wrestlefest. 

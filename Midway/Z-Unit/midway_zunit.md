@@ -335,3 +335,39 @@ The Slave CPU is responsible for primarily speech and most sound effects (certai
 #### **Reporting Back to CPU**
 
 Both the master and the slave report back to the CPU via the talkback ribbon interface. Although, in my testing, I am not sure the program actually does anything with this information. I completely omitted it and nothing bad happened. So, it tells me that the sounds and audio in the game operate independently and are merely instructed to do play or stop via the main CPU program.
+
+### **CMOS RAM Notes**
+I want to note about the CMOS RAM in the system. So basically, in the Y Unit Core, I allow access to the test menu as the test menu is not rendered using the GPU in the TMS34010. Plus, there is room for the entirety of the CMOS RAM in BRAM, which is necessary for saving out through the Analogue Pocket's bridge interface to the SD Card.
+
+However, for the Z Unit, the test menu is actually rendered using the GPU, and so it wouldn't work under normal operation as that is eliminated in the core. So, I have had to handle the relevant options in the Analogue OS Interact menu. I couldn't give access to everything, but I did for some of the items due to limitations in space.
+
+#### **CMOS RAM Areas**
+The CMOS RAM is split up into 4 banks that are controllable via the game program. Each bank has a specific kind of data in there that the game uses for different purposes.
+
+- Bank 0: System/ Misc Info (Static)
+- Bank 1: Settings
+- Bank 2: High Score Table
+- Bank 3: Empty/ Unused? Could be counters.
+
+It is important to note that although the memory used for CMOS RAM on the board is a 16 bit addressing configuration, the actual interface is only 8 bits. So, the upper 8 bits go unused for every address. The entirety is 0x4000 bytes (0x1000 for each bank), total 16KB. Of course, on the board it would be 32KB, but half is unused.
+
+In the Z-Unit Core, I managed to scrounge up some space to save Bank 1 and Bank 2 in BRAM which is treated as NVRAM. For Bank 0, it is a fixed LUT. For Bank 3, I use SRAM, where it was before, this way the game can write and read from it freely as it wants without error.
+
+For the Y-Unit Core, I have enough space to save everything in BRAM, and everything gets stored as NVRAM. So, the user can change what they like in the test menu and that will be saved accordingly. It also saves the counters and all other data the game writes.
+
+#### **Deciphering Bank 1 (Settings)**
+As in the Z-Unit core, I present the settings to the user through the Analogue OS menu, I have had to override the control of that section of the CMOS RAM in the core.
+
+There are different and specific addresses that control the value of the settings, as expected, and that's the easy part.
+
+The hard part is that for every single setting you turn on or off, a checksum is calculated that is based on the value that setting is. If this checksum is off, then what happens is on bootup, the system thinks the CMOS is corrupted and wipes everything.
+
+A simple example to illustrate this is the difficulty setting. There are 10 total settings for difficulty. It is stored as a number from 1 to 10.
+
+At the start, I know what the default checksum is according to the specific options I have set to control in the core. That is, 0xF3BA. The idea is to add or subtract from this number for every setting you toggle from there.
+
+So, going back to the difficulty, the 0xF3BA represents a default difficulty level of 3. If the user touches nothing, then it is 0xF3BA.
+
+However, let's say the user changes it to 10. 10 is an increase of 7 from the default difficulty level. Therefore, the new checksum would be 0xF3BA - (10 - 3). Likewise, let's say the user decreased it to 1. The new checksum would be 0xF3BA + (3 - 1), because they went lower instead of higher.
+
+In this approach, I start with a base checksum according to the defaults I know I control, and then subtract or add, layering the different options the user selects on top. I also toggle the specific memory address value for that option as well. But, both have to be done for it to work properly.
