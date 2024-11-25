@@ -207,3 +207,20 @@ So, I had to create a split banking system for ADPCM data that goes into the YMZ
 From a board perspective, only Battle Bakraid utilizes an IC that uses serial communications to load and save high score data. None of the other boards have this functionality. However, for the FPGA Core, I built one into Batrider and Battle Garegga.
 
 This was not too complicated to do, it essentially boils down to finding the memory address region that stores the high score table and declaring that an NVRAM region that saves and loads.
+
+## License
+
+The documentation provided on this site is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
+
+This means you are free to:
+
+- **Share**: Copy and redistribute the material in any medium or format.
+- **Adapt**: Remix, transform, and build upon the material.
+
+However, the following terms apply:
+
+- **Attribution**: You must give appropriate credit to "Coin-Op Collection," provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+- **Non-Commercial**: You may not use the material for commercial purposes.
+- **ShareAlike**: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
+For any exceptions or further inquiries, please contact Coin-Op Collection directly.

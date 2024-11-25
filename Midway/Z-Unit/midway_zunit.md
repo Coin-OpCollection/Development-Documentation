@@ -371,3 +371,20 @@ So, going back to the difficulty, the 0xF3BA represents a default difficulty lev
 However, let's say the user changes it to 10. 10 is an increase of 7 from the default difficulty level. Therefore, the new checksum would be 0xF3BA - (10 - 3). Likewise, let's say the user decreased it to 1. The new checksum would be 0xF3BA + (3 - 1), because they went lower instead of higher.
 
 In this approach, I start with a base checksum according to the defaults I know I control, and then subtract or add, layering the different options the user selects on top. I also toggle the specific memory address value for that option as well. But, both have to be done for it to work properly.
+
+## License
+
+The documentation provided on this site is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
+
+This means you are free to:
+
+- **Share**: Copy and redistribute the material in any medium or format.
+- **Adapt**: Remix, transform, and build upon the material.
+
+However, the following terms apply:
+
+- **Attribution**: You must give appropriate credit to "Coin-Op Collection," provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+- **Non-Commercial**: You may not use the material for commercial purposes.
+- **ShareAlike**: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
+For any exceptions or further inquiries, please contact Coin-Op Collection directly.
