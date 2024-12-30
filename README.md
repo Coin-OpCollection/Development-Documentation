@@ -10,6 +10,7 @@ This repository contains useful technical information about the base platform sy
   - [16-bit](/Technos/Technos-16/technos_16.md)
 - Toaplan2
   - [Raizing](/Toaplan2/Raizing/toaplan2_raizing.md)
+    - [Batrider RA9704 PCB Reference, Layout, and Schematics](/Toaplan2/Raizing/RA9704/README.md)
 
 ## License
 

@@ -1,4 +1,10 @@
 # **Toaplan2 - Raizing**
+
+## Document Links
+
+- [Raizing (this document)](/Toaplan2/Raizing/toaplan2_raizing.md)
+  - [Batrider RA9704 PCB Reference, Layout, and Schematics](/Toaplan2/Raizing/RA9704/README.md)
+
 ## **Introduction**
 This document is a technical overview of the Toaplan 2 Raizing System. It covers the high level architecture and subsystems of games Sorcer Striker, Kingdom Grandprix, Battle Garegga, Batrider and Battle Bakraid. All the boards are different and cannot be converted to eachother as well.
 
