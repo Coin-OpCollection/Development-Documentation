@@ -9984,7 +9984,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0df0e834-0f03-4e6a-a700-5fe78dffc7c8")
-		(property "Reference" "U713"
+		(property "Reference" "UO713"
 			(at 267.6241 189.23 0)
 			(effects
 				(font
@@ -10092,7 +10092,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/44ef47a8-0f29-401a-8a6a-1ae8d653f277"
-					(reference "U713")
+					(reference "UO713")
 					(unit 1)
 				)
 			)
@@ -10173,7 +10173,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "140e5dfd-b16b-4a14-896d-386830e6c2ba")
-		(property "Reference" "U77"
+		(property "Reference" "UO77"
 			(at 367.9541 87.63 0)
 			(effects
 				(font
@@ -10317,7 +10317,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/44ef47a8-0f29-401a-8a6a-1ae8d653f277"
-					(reference "U77")
+					(reference "UO77")
 					(unit 1)
 				)
 			)
@@ -10397,7 +10397,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "240d7f59-1002-40bd-84eb-d44452b682ad")
-		(property "Reference" "RA74"
+		(property "Reference" "RAO74"
 			(at 318.77 164.338 90)
 			(effects
 				(font
@@ -10472,7 +10472,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/44ef47a8-0f29-401a-8a6a-1ae8d653f277"
-					(reference "RA74")
+					(reference "RAO74")
 					(unit 1)
 				)
 			)
@@ -10619,7 +10619,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "32d8d52e-83e3-4d34-a1c5-53c58551a59f")
-		(property "Reference" "RA71"
+		(property "Reference" "RAO71"
 			(at 126.746 58.42 90)
 			(effects
 				(font
@@ -10694,7 +10694,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/44ef47a8-0f29-401a-8a6a-1ae8d653f277"
-					(reference "RA71")
+					(reference "RAO71")
 					(unit 1)
 				)
 			)
@@ -10775,7 +10775,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3adc3f98-ec53-4919-a07c-eb8ca0a0153e")
-		(property "Reference" "U75"
+		(property "Reference" "UO75"
 			(at 196.5041 40.64 0)
 			(effects
 				(font
@@ -10943,7 +10943,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/44ef47a8-0f29-401a-8a6a-1ae8d653f277"
-					(reference "U75")
+					(reference "UO75")
 					(unit 1)
 				)
 			)
@@ -10959,7 +10959,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3c57c0a5-c53d-4c67-b188-c278fe5d166e")
-		(property "Reference" "U74"
+		(property "Reference" "UO74"
 			(at 177.4541 189.23 0)
 			(effects
 				(font
@@ -11067,7 +11067,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/44ef47a8-0f29-401a-8a6a-1ae8d653f277"
-					(reference "U74")
+					(reference "UO74")
 					(unit 1)
 				)
 			)
@@ -11149,7 +11149,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5b382941-dadb-4e25-a53c-0c4663b15362")
-		(property "Reference" "U78"
+		(property "Reference" "UO78"
 			(at 367.9541 27.94 0)
 			(effects
 				(font
@@ -11281,7 +11281,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/44ef47a8-0f29-401a-8a6a-1ae8d653f277"
-					(reference "U78")
+					(reference "UO78")
 					(unit 1)
 				)
 			)
@@ -11361,7 +11361,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "66481d0a-4f19-40f1-9ea6-de40a9395a47")
-		(property "Reference" "RA73"
+		(property "Reference" "RAO73"
 			(at 229.87 164.592 90)
 			(effects
 				(font
@@ -11436,7 +11436,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/44ef47a8-0f29-401a-8a6a-1ae8d653f277"
-					(reference "RA73")
+					(reference "RAO73")
 					(unit 1)
 				)
 			)
@@ -11649,7 +11649,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "86927312-010b-4935-ac26-4dc4f464dbb9")
-		(property "Reference" "R71"
+		(property "Reference" "RO71"
 			(at 129.54 85.09 90)
 			(effects
 				(font
@@ -11701,7 +11701,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/44ef47a8-0f29-401a-8a6a-1ae8d653f277"
-					(reference "R71")
+					(reference "RO71")
 					(unit 1)
 				)
 			)
@@ -11849,7 +11849,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ba10fefd-dbff-4fb4-91ed-21820ae7d2c3")
-		(property "Reference" "U717"
+		(property "Reference" "UO717"
 			(at 102.5241 194.31 0)
 			(effects
 				(font
@@ -11945,7 +11945,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/44ef47a8-0f29-401a-8a6a-1ae8d653f277"
-					(reference "U717")
+					(reference "UO717")
 					(unit 1)
 				)
 			)
