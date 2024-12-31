@@ -6,7 +6,7 @@
 	(paper "B")
 	(title_block
 		(title "RA9704, Audio Amplifier")
-		(date "2024-12-29")
+		(date "2024-12-30")
 		(rev "002")
 		(company "Coin-Op Collection")
 		(comment 1 "Author: Brandon Arnold")

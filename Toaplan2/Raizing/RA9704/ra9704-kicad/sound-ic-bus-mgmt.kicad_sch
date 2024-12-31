@@ -6,7 +6,7 @@
 	(paper "A" portrait)
 	(title_block
 		(title "RA9704, Sound IC and Bus Mgmt")
-		(date "2024-12-29")
+		(date "2024-12-30")
 		(rev "002")
 		(company "Coin-Op Collection")
 		(comment 1 "Author: Brandon Arnold")
@@ -3423,6 +3423,16 @@
 	)
 	(wire
 		(pts
+			(xy 36.83 60.96) (xy 52.07 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96834928-fa8e-41f7-a896-dba19413f628")
+	)
+	(wire
+		(pts
 			(xy 63.5 200.66) (xy 85.09 200.66)
 		)
 		(stroke
@@ -4032,6 +4042,16 @@
 		)
 		(uuid "21e31aef-ea60-4f3f-9fe3-d9de3ea287c3")
 	)
+	(text "PCM_EXP1_CLK is Unknown"
+		(exclude_from_sim no)
+		(at 283.21 116.84 0)
+		(effects
+			(font
+				(size 5 5)
+			)
+		)
+		(uuid "5940632a-e618-4b0b-b9f6-26793f72df35")
+	)
 	(label "SFX1_A12"
 		(at 26.67 73.66 0)
 		(fields_autoplaced yes)
@@ -4175,8 +4195,8 @@
 		)
 		(uuid "186069b5-da23-45ed-851f-1a32b2a77aec")
 	)
-	(label "SBUS_A[1..15]"
-		(at 24.13 222.25 0)
+	(label "SBUS_A[0..15]"
+		(at 105.41 119.38 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4184,7 +4204,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "1d36d03e-17ff-41ba-910e-4cc3afd45309")
+		(uuid "19730d1f-d972-4d5d-8e53-869fae62573e")
 	)
 	(label "GCU_D3"
 		(at 63.5 154.94 0)
@@ -4197,16 +4217,16 @@
 		)
 		(uuid "1df02f8b-b9f8-4c74-ac12-3a070885246a")
 	)
-	(label "SFX2_A[8..18]"
-		(at 121.92 106.68 0)
+	(label "PCM_EXP1_CLK"
+		(at 52.07 60.96 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "299b88fe-fb7b-4648-9ec1-dd223a4a77f5")
+		(uuid "22bc2ab4-d946-426c-bf77-17a4a9a36807")
 	)
 	(label "SFX1_A14"
 		(at 26.67 78.74 0)
@@ -4263,17 +4283,6 @@
 		)
 		(uuid "3c38ede7-959b-406d-ac8c-5c68c8712121")
 	)
-	(label "SBUS_A[1..15]"
-		(at 104.14 119.38 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3dabecce-f61c-4335-a01d-9d741464cd6f")
-	)
 	(label "GCU_D7"
 		(at 142.24 208.28 0)
 		(fields_autoplaced yes)
@@ -4284,17 +4293,6 @@
 			(justify left bottom)
 		)
 		(uuid "3f268481-b6d7-4955-a609-aef21a36329e")
-	)
-	(label "SBUS_A[1..15]"
-		(at 24.13 119.38 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "41407e54-4737-422e-87bc-230b745e464b")
 	)
 	(label "SFX2_A10"
 		(at 124.46 67.31 0)
@@ -4317,6 +4315,17 @@
 			(justify left bottom)
 		)
 		(uuid "462c1c7d-41d3-42b0-84d7-7e973fc1e7b5")
+	)
+	(label "SFX2_A[0..18]"
+		(at 123.19 106.68 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "46ff1e9d-2608-455f-b6d2-eb47fb4acd17")
 	)
 	(label "GCU_D6"
 		(at 142.24 210.82 0)
@@ -4361,17 +4370,6 @@
 			(justify left bottom)
 		)
 		(uuid "5c4248e6-a4be-4306-bac0-f7d868d021ad")
-	)
-	(label "SFX1_A[8..18]"
-		(at 154.94 209.55 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5d1e64a6-78ce-464a-9e7c-3c2f7540b2bd")
 	)
 	(label "YM2151_D2"
 		(at 142.24 170.18 0)
@@ -4439,6 +4437,17 @@
 		)
 		(uuid "6ddfa93d-0846-4d9d-8c30-5d8e780d7aef")
 	)
+	(label "SFX2_A[0..18]"
+		(at 156.21 198.12 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6f06f259-b1c4-4a22-98a9-cbd09d8b5975")
+	)
 	(label "GCU_D[0..7]"
 		(at 44.45 125.73 0)
 		(fields_autoplaced yes)
@@ -4451,7 +4460,7 @@
 		(uuid "702203fc-f9da-4d77-85a7-77c15d970abf")
 	)
 	(label "GCU_D[0..7]"
-		(at 121.92 125.73 0)
+		(at 123.19 125.73 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4494,17 +4503,6 @@
 		)
 		(uuid "7b5d2268-fb77-4fc1-91f1-29a6e5a28733")
 	)
-	(label "SFX2_A[8..18]"
-		(at 154.94 198.12 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7d9dc736-ee68-4639-9507-f73a9813d60c")
-	)
 	(label "SBUS_A3"
 		(at 63.5 203.2 0)
 		(fields_autoplaced yes)
@@ -4527,8 +4525,8 @@
 		)
 		(uuid "85fcd53f-f03a-496f-9a7b-ce0eb35d3f31")
 	)
-	(label "SFX1_A[8..18]"
-		(at 24.13 113.03 0)
+	(label "SFX1_A[0..18]"
+		(at 25.4 113.03 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4536,7 +4534,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "8acd7673-5e93-4fbf-81fd-82cb1bd5514c")
+		(uuid "99f33ad7-4e07-4398-b17f-f4c40e69115e")
 	)
 	(label "YM2151_D3"
 		(at 142.24 172.72 0)
@@ -4593,7 +4591,7 @@
 		)
 		(uuid "a0f31582-c821-4d20-bd55-1fa37e4735d7")
 	)
-	(label "SFX1_A[8..18]"
+	(label "SFX1_A[0..18]"
 		(at 179.07 181.61 90)
 		(fields_autoplaced yes)
 		(effects
@@ -4692,6 +4690,17 @@
 		)
 		(uuid "c565312a-9036-4a18-a198-b4b0cc2b3e4d")
 	)
+	(label "SBUS_A[0..15]"
+		(at 25.4 222.25 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c8dfdbbd-5721-4931-9582-88da141a8b2c")
+	)
 	(label "YM2151_D7"
 		(at 142.24 185.42 0)
 		(fields_autoplaced yes)
@@ -4714,8 +4723,19 @@
 		)
 		(uuid "ce9950c5-70d4-41d0-9895-84aa04003f42")
 	)
-	(label "SFX1_A[8..18]"
-		(at 121.92 113.03 0)
+	(label "SBUS_A[0..15]"
+		(at 25.4 119.38 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d1cfad74-2bc6-4f5e-8756-1989b069ada9")
+	)
+	(label "SFX1_A[0..18]"
+		(at 123.19 113.03 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4724,17 +4744,6 @@
 			(justify left bottom)
 		)
 		(uuid "d87e508b-fb09-47dd-b5ef-4c05bfbee7cd")
-	)
-	(label "GCU_D[0..7]"
-		(at 153.67 222.25 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d9bb304e-b12f-40a6-a5ea-6eb203d1f469")
 	)
 	(label "SFX2_A16"
 		(at 142.24 195.58 0)
@@ -4758,7 +4767,7 @@
 		)
 		(uuid "dcd52222-14f4-4fab-8795-93891f9bbc06")
 	)
-	(label "SFX2_A[8..18]"
+	(label "SFX2_A[0..18]"
 		(at 181.61 181.61 90)
 		(fields_autoplaced yes)
 		(effects
@@ -4768,6 +4777,17 @@
 			(justify left bottom)
 		)
 		(uuid "dcf95524-ca2b-4aaf-95f0-5c1c5c0ce22c")
+	)
+	(label "GCU_D[0..7]"
+		(at 156.21 222.25 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e4f29fc9-f781-44f0-a71d-dccc48e272ba")
 	)
 	(label "GCU_D5"
 		(at 142.24 213.36 0)
@@ -4823,6 +4843,17 @@
 			(justify left bottom)
 		)
 		(uuid "f881fb8f-5afe-4ac9-becf-c741ae958700")
+	)
+	(label "SFX1_A[0..18]"
+		(at 156.21 209.55 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fc00b5d1-3dab-4aa6-b0eb-17bec1dfd99a")
 	)
 	(label "SFX1_A15"
 		(at 26.67 81.28 0)
@@ -4884,7 +4915,7 @@
 		(uuid "1dd2b419-0366-4b89-85f5-a39508091238")
 	)
 	(hierarchical_label "SCPU_~{RESET}"
-		(shape input)
+		(shape bidirectional)
 		(at 85.09 180.34 180)
 		(fields_autoplaced yes)
 		(effects
@@ -4896,7 +4927,7 @@
 		(uuid "1e27eb88-2e5a-43b2-966d-b6f06cda8b6c")
 	)
 	(hierarchical_label "SFX2_VPP"
-		(shape input)
+		(shape output)
 		(at 130.81 187.96 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4956,7 +4987,7 @@
 		(uuid "3fdafc77-4a42-4ecc-9f15-021281f1f5a8")
 	)
 	(hierarchical_label "SFX1_VPP"
-		(shape input)
+		(shape output)
 		(at 130.81 198.12 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4979,19 +5010,7 @@
 		)
 		(uuid "44fd7ff5-33cc-47e6-b7cf-4397906f3be3")
 	)
-	(hierarchical_label "PCM_EXP1_CLK"
-		(shape input)
-		(at 52.07 60.96 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "57c42627-f8bd-49f4-8619-6ef4b51c1dbc")
-	)
-	(hierarchical_label "SBUS_A[1..15]"
+	(hierarchical_label "SBUS_A[0..15]"
 		(shape bidirectional)
 		(at 185.42 119.38 0)
 		(fields_autoplaced yes)
@@ -5123,7 +5142,7 @@
 		)
 		(uuid "960d3e83-51f4-4f52-a8d9-4ef97576f3c5")
 	)
-	(hierarchical_label "SFX2_A[8..18]"
+	(hierarchical_label "SFX2_A[0..18]"
 		(shape bidirectional)
 		(at 185.42 106.68 0)
 		(fields_autoplaced yes)
@@ -5195,7 +5214,7 @@
 		)
 		(uuid "cd40e566-ee4e-4ab4-8dfa-f2c1aa199b25")
 	)
-	(hierarchical_label "SFX1_A[8..18]"
+	(hierarchical_label "SFX1_A[0..18]"
 		(shape bidirectional)
 		(at 185.42 113.03 0)
 		(fields_autoplaced yes)

@@ -701,16 +701,16 @@
       "Sound CPU and Memory"
     ],
     [
-      "f9407558-062f-4d91-8892-43d6718e589b",
-      "Video RAM"
-    ],
-    [
       "2c170486-a7cf-4da9-9098-f4bf25efe1be",
       "Sound IC and Bus Mgmt"
     ],
     [
       "f1e08610-acea-4fac-a2bc-d14b9a6056d9",
       "Main IC and Bus Mgmt"
+    ],
+    [
+      "7e3f3952-fdac-4324-a754-c9025bb7f3ca",
+      "Video RAM and Bus Mgmt"
     ]
   ],
   "text_variables": {}

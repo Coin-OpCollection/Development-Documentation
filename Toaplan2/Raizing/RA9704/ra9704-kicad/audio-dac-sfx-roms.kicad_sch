@@ -6,7 +6,7 @@
 	(paper "B")
 	(title_block
 		(title "RA9704, Audio DAC and Sound Effect ROMs")
-		(date "2024-12-29")
+		(date "2024-12-30")
 		(rev "002")
 		(company "Coin-Op Collection")
 		(comment 1 "Author: Brandon Arnold")
@@ -2977,6 +2977,15 @@
 		(uuid "20776d76-1288-4dd1-a87b-caaf7e5afd4b")
 	)
 	(bus_entry
+		(at 43.18 58.42)
+		(size 2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "25824e9c-0d18-4ffa-bf6b-13839b600d5c")
+	)
+	(bus_entry
 		(at 110.49 165.1)
 		(size -2.54 -2.54)
 		(stroke
@@ -5644,6 +5653,16 @@
 		)
 		(uuid "86f362b4-10e7-41cc-bd20-2d6a717f72bb")
 	)
+	(bus
+		(pts
+			(xy 36.83 58.42) (xy 43.18 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87a1a4f9-b793-4b09-8cc2-e84fdb78bf42")
+	)
 	(wire
 		(pts
 			(xy 179.07 78.74) (xy 189.23 78.74)
@@ -5824,16 +5843,6 @@
 		)
 		(uuid "9abab9a0-7966-43f3-995e-53dc550838db")
 	)
-	(wire
-		(pts
-			(xy 331.47 93.98) (xy 341.63 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9b9979de-14fb-42fd-974c-cb1a18a83d11")
-	)
 	(bus
 		(pts
 			(xy 328.93 128.27) (xy 328.93 144.78)
@@ -5983,6 +5992,16 @@
 			(type default)
 		)
 		(uuid "ac382935-2eaa-42ac-a970-18f4505e1c56")
+	)
+	(wire
+		(pts
+			(xy 45.72 60.96) (xy 67.31 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ac5e6c08-e6db-4a00-ad48-3b340724462a")
 	)
 	(bus
 		(pts
@@ -7284,7 +7303,7 @@
 		)
 		(uuid "3203e367-eb67-4a36-abaf-614b1cfe4b8e")
 	)
-	(label "SFX1_A[0..7]"
+	(label "SFX1_A[0..18]"
 		(at 176.53 125.73 90)
 		(fields_autoplaced yes)
 		(effects
@@ -7581,7 +7600,7 @@
 		)
 		(uuid "6347ad79-584b-4a78-b203-8117835a6d72")
 	)
-	(label "SFX2_A[0..7]"
+	(label "SFX2_A[0..18]"
 		(at 328.93 125.73 90)
 		(fields_autoplaced yes)
 		(effects
@@ -8516,6 +8535,17 @@
 		)
 		(uuid "f6786cbc-fe3b-4c53-892a-1444a6e7d7dc")
 	)
+	(label "SBUS_A0"
+		(at 45.72 60.96 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f785caf0-2fa4-44a5-80a3-f1c93f2ec10a")
+	)
 	(label "SFX2_A11"
 		(at 331.47 71.12 0)
 		(fields_autoplaced yes)
@@ -8560,17 +8590,6 @@
 		)
 		(uuid "fce53baf-8ac5-4815-8c3d-649800474bdf")
 	)
-	(label "SFX2_VPP"
-		(at 331.47 93.98 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fed950b5-ed0f-46a4-b671-47937ccb9450")
-	)
 	(hierarchical_label "YM2151_~{CS}"
 		(shape input)
 		(at 67.31 68.58 180)
@@ -8595,7 +8614,7 @@
 		)
 		(uuid "0638f0fc-6a8d-47bd-bf80-597e99a39a2f")
 	)
-	(hierarchical_label "SFX2_A[0..7]"
+	(hierarchical_label "SFX2_A[0..18]"
 		(shape bidirectional)
 		(at 334.01 128.27 0)
 		(fields_autoplaced yes)
@@ -8752,7 +8771,7 @@
 		(uuid "62e11b40-ec2a-4f62-9c9c-7a29fc5baf1b")
 	)
 	(hierarchical_label "ADPCM1_DAO"
-		(shape input)
+		(shape output)
 		(at 316.23 195.58 0)
 		(fields_autoplaced yes)
 		(effects
@@ -8811,7 +8830,7 @@
 		)
 		(uuid "91092a86-dd9b-4a5f-8331-aa51b1347ac9")
 	)
-	(hierarchical_label "SFX1_A[0..7]"
+	(hierarchical_label "SFX1_A[0..18]"
 		(shape bidirectional)
 		(at 181.61 128.27 0)
 		(fields_autoplaced yes)
@@ -8834,18 +8853,6 @@
 			(justify right)
 		)
 		(uuid "9c031579-4d75-4c90-a1ca-2495e769866c")
-	)
-	(hierarchical_label "SBUS_A0"
-		(shape input)
-		(at 67.31 60.96 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "9c847753-ff88-47d9-991d-bf8be1c153ba")
 	)
 	(hierarchical_label "SCPU_~{WR}"
 		(shape input)
@@ -8870,6 +8877,18 @@
 			(justify left)
 		)
 		(uuid "9dfd33c5-7971-40d2-bff4-a67b0981bde3")
+	)
+	(hierarchical_label "SBUS_A[0..15]"
+		(shape input)
+		(at 36.83 58.42 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9e212379-8977-4a98-9f63-66d75a1814fa")
 	)
 	(hierarchical_label "SCPU_~{RD}"
 		(shape input)
@@ -8932,7 +8951,7 @@
 		(uuid "d9224fa6-4d40-4e1d-b194-928a15aeaa3d")
 	)
 	(hierarchical_label "ADPCM2_DAO"
-		(shape input)
+		(shape output)
 		(at 163.83 195.58 0)
 		(fields_autoplaced yes)
 		(effects
@@ -8942,6 +8961,18 @@
 			(justify left)
 		)
 		(uuid "ee3817e7-2c4d-466f-ad5a-bdbfbc8bdcd6")
+	)
+	(hierarchical_label "SFX2_VPP"
+		(shape input)
+		(at 341.63 93.98 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fb6c2bc7-68b9-4628-b241-8ec2d309c022")
 	)
 	(symbol
 		(lib_id "power:+5V")
