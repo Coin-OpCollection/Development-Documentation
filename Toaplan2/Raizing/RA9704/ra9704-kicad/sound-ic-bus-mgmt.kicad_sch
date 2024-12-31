@@ -7,7 +7,7 @@
 	(title_block
 		(title "RA9704, Sound IC and Bus Mgmt")
 		(date "2024-12-30")
-		(rev "002")
+		(rev "003")
 		(company "Coin-Op Collection")
 		(comment 1 "Author: Brandon Arnold")
 		(comment 2 "License: CC BY-NC-SA 4.0")

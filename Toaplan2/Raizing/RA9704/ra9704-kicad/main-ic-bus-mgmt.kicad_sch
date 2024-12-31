@@ -7,7 +7,7 @@
 	(title_block
 		(title "RA9704, Main IC and Bus Mgmt")
 		(date "2024-12-30")
-		(rev "002")
+		(rev "003")
 		(company "Coin-Op Collection")
 		(comment 1 "Author: Brandon Arnold")
 		(comment 2 "License: CC BY-NC-SA 4.0")
@@ -5252,7 +5252,6 @@
 		)
 	)
 	(symbol
-		(lib_name "ra9704:MACH211")
 		(lib_id "ra9704:MACH211")
 		(at 204.47 85.09 0)
 		(unit 1)
@@ -6677,7 +6676,6 @@
 		)
 	)
 	(symbol
-		(lib_name "ra9704:MACH211")
 		(lib_id "ra9704:MACH211")
 		(at 218.44 198.12 0)
 		(unit 1)
