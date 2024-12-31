@@ -84,7 +84,7 @@ At the start of the draw operation, both X and Y are set to 0. We must iterate t
 ##### **Find X Tile Index**
 The steps above concern finding the starting tile on the Y axis in the grid that corresponds to the line to be drawn in this line. Now, we have to do something similar to the X in that we have to apply the scroll offset first, shift the grid left or right, and then draw from there.
 
-Again, if the calculated value is less than -16, we add 512 to the value to wrap the cut part to the end of the grid as there is a wraparound x/y specification for the layers.
+Again, if the calculated value is less than -16, we add 512 to the value to wrap the cut part to the end of the grid as there is a wraparound X / Y specification for the layers.
 
 Once the starting X and Y tile index is found and clipping has been applied as the above, then the starting offset of that tile can be retrieved in the Foreground VRAM.
 
