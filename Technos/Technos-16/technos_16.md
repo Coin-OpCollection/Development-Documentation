@@ -1,26 +1,52 @@
-# **Technos 16-bit System**
-## **Introduction**
-This document is a technical overview of the Technos 16-bit system. It covers the high level architecture and subsystems of games Combatribes, Double Dragon 3 and WWF Wrestlefest. All 3 of these are slightly different boards from eachother, but the architecture is relatively the same.
+# **Technos 16-bit System Hardware Overview**
 
-### **Legal Mumbo-Jumbo**
-Unfortunately, with the way everything has become now at days, I have to state that it is perfectly OK to link to this site and use materials from it ONLY if proper attribution is made. If you want to do something else with it and have any doubts, please contact us and we can answer. But please, do not be like certain people and just randomly create YouTube videos and posts without proper attribution, and always link back to the source.
+<table>
+  <tr>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/07273862-0bdd-4d78-b090-6c35652f9fba">
+      <img src="https://github.com/user-attachments/assets/47572c67-60a2-45a2-a829-121aa45aaa11"><br>
+      <b>The Combatribes</b><br>
+      <i>(TA-0028-P1-23)</i><br>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/91719ecc-da92-431c-90f1-e66298e94aa8">
+      <img src="https://github.com/user-attachments/assets/07fcbd5a-9174-4cdc-87e9-1de55ac649e2"><br>
+      <b>Double Dragon 3: The Rosetta Stone</b><br>
+      <i>(TA-0030-P1-04)</i><br>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/14f559fb-a7b7-4278-887d-ea924849a6a7">
+      <img src="https://github.com/user-attachments/assets/ff5ba5b4-b357-445b-8ecc-3fe43a3381e9"><br>
+      <b>WWF WrestleFest</b><br>
+      <i>(TA-0031-P1-14)</i><br>
+    </td>
+  </tr>
+</table>
+
+## **Introduction**
+This document is a technical overview of the Technos 16-bit system. It covers the high level architecture and subsystems of games The Combatribes, Double Dragon 3: The Rosetta Stone and WWF Wrestlefest. All three of these are slightly different boards from each other, but the architecture is relatively the same.
+
+### **Disclaimer:**
+The materials provided on this site are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). You are free to share, copy, redistribute, remix, transform, and build upon the material, provided that appropriate credit is given to [Coin-Op Collection](https://github.com/Coin-OpCollection), including a link to the source and license, and an indication of any changes made. Attribution must be presented in a reasonable manner that does not imply endorsement by the licensor.
+
+The materials may not be used for commercial purposes, and any adaptations or derivatives must be distributed under the same license as the original. If you wish to use the content in a way that falls outside these terms or have any questions, please contact us directly. Unauthorized use, such as creating derivative works like YouTube videos or posts without proper attribution or linking back to the source, is not permitted.
 
 ## **High Level Architecture**
 The Technos 16-bit system is comprised of only a single board containing all the necessary components for graphics and sound production. It has a number of custom chips, mostly having to deal with RLE decompression, buffering and graphics engine stuff.
 
-There are 3 games in this series only, however, there are a number of changes that happened from a hardware perspective between the 3 games. the changes were mostly evolutional though, adding additional capability for the graphics engine. The rest is mostly the same.
+There are three games in this series only, however, there are a number of changes that happened from a hardware perspective between the three games. the changes were mostly evolutional though, adding additional capability for the graphics engine. The rest is mostly the same.
 
 ### **Graphics Data**
 The graphics data was a problem to deal with in the FPGA Core. The issue is that they had this custom chip that was responsible for transferring graphics data from the graphics rom and decompressing and assembling it back again in addition to caching stuff. They used a form of RLE compression, and they split the data into separate channels (or planes). There are a total of 4 channels, and each of the channels is located in a disparate section of the ROM and it's not contiguous at all. However, as for the rest of the system design, the wizards of Technos were highly efficient and designed a very efficient system that works well. They saved about 50% of the size by splitting and compressing the data.
 
 Doing this sort of thing is not really efficient from an FPGA perspective. First of all, for each graphics data you pull, you would have to at least do 4 reads for each of the 4 channels of data for the object or background. Then, you would have to figure out how to assemble that and present it properly. It is more efficient to just reorder the data upfront in the decompressed and assembled format, and base the core off of that, which is what I ended up doing.
 
-I created a python script to decrunch and repack the rom data after the MRA assembly step. It increases the size of the ROM data of course, which has to be accounted for in the loader, but it works well, and no unnecessary stuff in the core itself.
+I created a python script to decrunch and repack the rom data after the MRA assembly step. It increases the size of the ROM data of course, which has to be accounted for in the loader, but it works well, and no unnecessary rom inflation in the core itself.
 
 ### **Rendering Engine**
 The graphics for the game are produced by hardware. There is a custom chip for rendering tiles and graphics on the screen in a special coordinate system.
 
-Combatribes and Double Dragon 3 had 3 total layers for which graphics could be presented, but Wrestlefest adds an additional text layer on top which is used for presenting text on screen.
+The Combatribes and Double Dragon 3 had 3 total layers for which graphics could be presented, but Wrestlefest adds an additional text layer on top which is used for presenting text on screen.
 
 - Foreground Layer
 - Background Layer
@@ -67,7 +93,7 @@ The Foreground VRAM is organized in 16 bit addressing, and each tile metadata ta
 
 So, knowing the address in the Foreground VRAM, you can start to retrieve the metadata of the starting tile.
 
-From here, we have a couple of differences between Wrestlefest and The Combatribes/ DD3 boards.
+From here, we have a couple of differences between Wrestlefest and The Combatribes / DD3 boards.
 
 The original revision of the graphics engine had only support for flips on the x-axis, but the newer board for Wrestlefest can support flips on both axes. These appear on bits 6 for x and 7 for y of the metadata.
 
@@ -148,7 +174,7 @@ Below is a list of the modes that exist in wrestlefest:
 |0x7C|BG0, SPR, BG1, TEXT|
 |0x78|BG1, BG0, SPR, TEXT|
 
-And there are only 2 modes in Combatribes:
+And there are only 2 modes in The Combatribes:
 
 |Mode|Layer Order (backmost to frontmost)|
 |-|-|
@@ -165,7 +191,7 @@ Finally, there are 3 in Double Dragon 3:
 
 There are a couple more things about the graphics and rendering I would like to touch on, which are some nuances. In addition to the video register determining what the layer priority mode is as above, it also determines if either the background or foreground layers in that priority mode are transparent or not. If it's not, and it's opaque, then all pixels are drawn regardless on that layer. If it is, then only pixels that are not blank get drawn.
 
-From a color mixer perspective, Combatribes is 4bpp, however, Double Dragon 3 is 5bpp and Wrestlefest is 4bpp. This information is essential in converting the palette color to the proper value for displaying in 8 bit RGB like we normally do.
+From a color mixer perspective, The Combatribes is 4bpp, however, Double Dragon 3 is 5bpp and Wrestlefest is 4bpp. This information is essential in converting the palette color to the proper value for displaying in 8 bit RGB like we normally do.
 
 In addition, I am not sure why this is, but for some reason I need to draw one more extra horizontal pixel in order for the entire screen to render properly or else what happens is things wrap around, and you have a junk pixel column on either side of the screen. Sometimes this is intentional as overscan, but thought I would mention it as a quirk.
 
@@ -174,9 +200,9 @@ The next thing I want to touch on are the inputs. Now, this game operates as a p
 
 First of all, to note, the 68k processor has a 16 bit bus that can take in or output 16 bits at a time, with a byte mask. The UDS and LDS determine what byte should be taken into account when consuming or outputting the data. So, as it happens, to save on space and routing on the board, Technos repurposed addresses for multiple uses. The use of them depends on whether the request is in byte mode (ie. only one of UDS or LDS active) or word mode (both UDS and LDS active together). So this is something you have to pay very careful attention to in wiring the input system up and make sure you don't mix up both purposes, otherwise inputs will be very screwed up and things wont work properly.
 
-Secondly, one of the interrupts on the system is used as an input polling routine. For this, I had to measure the boards to get the proper frequency at which the interrupt triggers. I suppose you can fake it like the current emulators do, and use a fixed value for all 3 games, but technically that's not correct and if the polling is slower than it is on the real board, you may encounter latency in gameplay. It may not necessarily be noticeable by a player, but still, it adds accuracy and value to use the proper polling frequency.
+Secondly, one of the interrupts on the system is used as an input polling routine. For this, I had to measure the boards to get the proper frequency at which the interrupt triggers. I suppose you can fake it like the current emulators do, and use a fixed value for all three games, but technically that's not correct and if the polling is slower than it is on the real board, you may encounter latency in gameplay. It may not necessarily be noticeable by a player, but still, it adds accuracy and value to use the proper polling frequency.
 
-Wrestlefest is 1.63Khz and Double Dragon 3 is 3.91Khz. See how much they vary? I do not have Combatribes, but since it is mostly the same as Double Dragon 3, we used the same value as Double Dragon 3.
+Wrestlefest is 1.63Khz and Double Dragon 3 is 3.91Khz. See how much they vary? I do not have The Combatribes, but atrac17 measured the board and it is the same value as Double Dragon 3.
 
 ### **Audio**
 Lastly, I want to mention the audio setup used for the games. The audio setup is fairly standard and straightforward with nothing really special. Below is the hardware used:

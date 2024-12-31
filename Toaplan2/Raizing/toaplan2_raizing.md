@@ -1,18 +1,50 @@
-# **Toaplan2 - Raizing**
+# **Toaplan2 - Eighting / Raizing Hardware Overview**
+
+<table>
+  <tr>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/5efe4e70-785d-4932-8cb7-3bb9daf1605c"><br>
+      <b>Sorcer Striker</b><br>
+      <i>(RA-MA7893-01)</i><br>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/e0d8d130-bd38-490f-a64e-dbb4740377a7"><br>
+      <b>Kingdom Grandprix</b><br>
+      <i>(RA-MA9402-03)</i><br>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/18b7cd14-eb6a-4ced-92f4-ea7fba457fb5"><br>
+      <b>Battle Garegga</b><br>
+      <i>(RA9503)</i><br>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/2a2b0a6d-a531-4501-9ca8-be1999290984"><br>
+      <b>Armed Police Batrider</b><br>
+      <i>(RA9704)</i><br>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/121ada7c-1ea1-4f95-baf8-622e2c6357f7"><br>
+      <b>Battle Bakraid</b><br>
+      <i>(ET68-V99)</i><br>
+    </td>
+  </tr>
+</table>
 
 ## Document Links
 
-- [Raizing (this document)](/Toaplan2/Raizing/toaplan2_raizing.md)
+- [Eighting / Raizing Hardware Overview (*this document*)](/Toaplan2/Raizing/toaplan2_raizing.md)
   - [Batrider RA9704 PCB Reference, Layout, and Schematics](/Toaplan2/Raizing/RA9704/README.md)
 
 ## **Introduction**
-This document is a technical overview of the Toaplan 2 Raizing System. It covers the high level architecture and subsystems of games Sorcer Striker, Kingdom Grandprix, Battle Garegga, Batrider and Battle Bakraid. All the boards are different and cannot be converted to eachother as well.
+This document provides a technical overview of the Toaplan 2 Eighting / Raizing System, detailing the high-level architecture and subsystems of games such as Sorcer Striker, Kingdom Grandprix, Battle Garegga, Armed Police Batrider, and Battle Bakraid. Each board is distinct and not interchangeable with others in the series.
 
-### **Legal Mumbo-Jumbo**
-Unfortunately, with the way everything has become now at days, I have to state that it is perfectly OK to link to this site and use materials from it ONLY if proper attribution is made. If you want to do something else with it and have any doubts, please contact us and we can answer. But please, do not be like certain people and just randomly create YouTube videos and posts without proper attribution, and always link back to the source.
+### **Disclaimer:**
+The materials provided on this site are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). You are free to share, copy, redistribute, remix, transform, and build upon the material, provided that appropriate credit is given to [Coin-Op Collection](https://github.com/Coin-OpCollection), including a link to the source and license, and an indication of any changes made. Attribution must be presented in a reasonable manner that does not imply endorsement by the licensor.
+
+The materials may not be used for commercial purposes, and any adaptations or derivatives must be distributed under the same license as the original. If you wish to use the content in a way that falls outside these terms or have any questions, please contact us directly. Unauthorized use, such as creating derivative works like YouTube videos or posts without proper attribution or linking back to the source, is not permitted.
 
 ## **High Level Architecture**
-The Raizing series of games is based for the most part on the Toaplan2 Platform architecture. Central to the graphics system is the GP9001 chip. The chip is used as a GCU (Graphics Coordination Unit) in the platform, this is not the same as a GPU, however. The system boasts a large graphics rom and banking capability as well as 256 sprites on screen at any given point. The sprites can get quite large in the games, and there is a concept of linked and chained sprites which are smaller sprites that make up a larger whole. All the games use ADPCM sound and the YM2151 in conjunction with a Z80. It is a single board platform where all the necessary components are integrated.
+The Eighting / Raizing series of games is based for the most part on the Toaplan2 Platform architecture. Central to the graphics system is the GP9001 chip. The chip is used as a GCU (Graphics Coordination Unit) in the platform, this is not the same as a GPU, however. The system boasts a large graphics rom and banking capability as well as 256 sprites on screen at any given point. The sprites can get quite large in the games, and there is a concept of linked and chained sprites which are smaller sprites that make up a larger whole. All the games use ADPCM sound and the YM2151 in conjunction with a Z80. It is a single board platform where all the necessary components are integrated.
 
 ### **CPU**
 We start our journey on this platform with the CPU: A Motorola 68000. The CPU in the platform handles all coordination aspects between various devices on the bus including the GP9001, sound components, memory and I/O. There is an extensive POST test at the beginning of each game in the series which pretty much checks everything, including the ROM data. As a result, the CPU also has access to the ROM data as well, including the sound CPU program, which is somewhat uncommon.
@@ -62,7 +94,7 @@ Below is a list of registers in the GP9001 and what they do.
 | 0x0E        | VINT Control          | Configures vertical synchronization and control settings. Initialization?     |
 | 0x8*        | Scroll Flip Control   | Configures flipping of all layers and sprites (horizontal/vertical). |
 
-The 0x0e (VINT control) one is a special register that controls the VINT pin going out. This is SUPPOSED to go into the CPU as the VINT interrupt, but I really haven't found any practical function for it in my testing, so I don't think it's being used, at least in the Raizing games. It would normally be used if the V interrupt that goes into the CPU (IPL1) is controlled under the supervision of the game program instead of by the line counters, but no game is really doing that, so I left it disconnected in my core. It seemed to mess up more things than it fixed. They say in the MAME documentation that it is used as an initialization value to tell the program the GP9001 is ready, but I am not sure that's true either.
+The 0x0e (VINT control) one is a special register that controls the VINT pin going out. This is SUPPOSED to go into the CPU as the VINT interrupt, but I really haven't found any practical function for it in my testing, it's not being used, at least in the Raizing games. It would normally be used if the V interrupt that goes into the CPU (IPL1) is controlled under the supervision of the game program instead of by the line counters, but no game is really doing that, so I left it disconnected in my core. It seemed to mess up more things than it fixed. They say in the MAME documentation that it is used as an initialization value to tell the program the GP9001 is ready, but I am not sure that's true either.
 
 For the Scroll Flip Control (mask 0x80, 8th bit), this too is kind of a special option to be used in the selecting of the scroll registers when writing to them. If the 8th bit is high, then it means that flip on that particular layer and axis is on, else it is off. But, I never actually used these functions (I tie the FLIPX and FLIPY pins down in the video module). I think it is supposed to be used when you have the dip switch for inverting the monitor video on. I never quite got that to work properly, and so I do it by inverting the line counters instead to flip the video in both ways as it is a less invasive and simple solution. So essentially, if the user selects flip, it outputs the pixels to the screen in a different, inverted, way.
 
@@ -200,7 +232,7 @@ The interface with the CPU is primarily done through "sound latches". These are 
 The main CPU sends sound commands to the Z80, and then a command is issued to the appropriate devices to play the sound. An acknowledgment is sent back to the CPU to indicate completion of the command. It is important though that the CPU wait for the command acknowledgment from the Z80 because otherwise there could be desynchronization issues between the game program and sound and will result in skipping or artifacts in the audio.
 
 #### **Issues with Sorcer Striker & Kingdom Grandprix**
-Originally, I had problems with the speed of the sound on both of these games. After tracing back the relevant parts of the board concerning the Z80, we determined that the issue was with the WAIT generation for these games on the Z80.
+Originally, I had problems with the speed of the sound on both of these games. After having atrac17 trace back the relevant parts of these two boards concerning the Z80, I was able to determine that the issue was with the WAIT generation for these games on the Z80.
 
 For these games, the WAIT should be supplied by the YM2151 DOUT pin 7 inverted.
 
