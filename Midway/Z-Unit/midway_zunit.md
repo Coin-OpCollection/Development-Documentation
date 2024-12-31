@@ -31,11 +31,11 @@ The materials may not be used for commercial purposes, and any adaptations or de
 
 The Z-Unit architecture is composed totally of 4 boards.
 - Main, CPU Board
-- Image/ ROM Board
+- Image / ROM Board
 - I/O Board
 - Sound Board
 
-All of these boards must be connected to each other in a specific way, as outlined by the diagram above. Therefore, the most practical way to connect the system in a cabinet or home scenario is to have a mounting board and lay out all the pieces as shown. Then, connect the ribbon cables and also the power supply/ transformer to the side.
+All of these boards must be connected to each other in a specific way, as outlined by the diagram above. Therefore, the most practical way to connect the system in a cabinet or home scenario is to have a mounting board and lay out all the pieces as shown. Then, connect the ribbon cables and also the power supply / transformer to the side.
 
 ### **Main CPU Board**
 <img src="images/main_cpu_board_overview.png" width="800">
@@ -60,7 +60,7 @@ All of these boards must be connected to each other in a specific way, as outlin
 
 The above is a BOM which is listed in the manual. It indicates the major components on the CPU Board C-11879-3036. Below, I will go over some of the major components and what role they play in the FPGA Core and system.
 
-#### **U18, TMS34010 GSP/ CPU**
+#### **U18, TMS34010 GSP / CPU**
 This is the main CPU of the system, the [Texas Instruments TMS34010 CPU](https://en.wikipedia.org/wiki/TMS34010). The CPU was a powerhouse at the time this game was released, and Midway also used it in subsequent games on the Y, T and Wolf Units. Additionally, this CPU is not to be confused with the TMS34020, which was released later, functions a little bit differently, and is more suited towards 3D operations practically speaking.
 
 As it indicates in the Wikipedia article, the chip was both a CPU and GPU. The CPU includes instructions for moving data, mathematics and other functional operations. The GPU side includes instructions for drawing data in VRAM, and bulk clearing. In addition, the chip also could generate sync and blank video signals, or, optionally, sync with an external video circuit that would do the same. It could also operate in interleaved and progressive mode.
@@ -70,7 +70,7 @@ From a development perspective, it took about 1 year total to implement the chip
 Other than replicating the functionality from the developer's guide published by TI directly, I have also used current emulator sources to test issues and adjudicate when the manual was unclear. As in the original design, the instruction executions were implemented with a custom microcode engine I designed. The GPU did not use microcode, and so I implemented that using standard verilog. I have only ever tested proper workings on the MiSTer, and intend to reintroduce the GPU back in the implementation for MARS as it has the space. The FPGA implementation has the CPU generating the video line counter and interesting to note, the video timings come from the game program, so there is no need to actually setup static video timings via measurement like we would normally do on other cores or systems.
 
 #### **U77, DMA**
-The DMA Chip is a very important chip in the system that handles all bitmap rendering. The DMA has a direct line to the Image/ ROM Board. It also has a direct line to the Bitmap and Palette RAM. Again, the graphics are not rendered by the CPU even though the CPU could technically do it. The reason why is because the CPU bus is too small. It can only take in and output 16 bits. That's not enough to power the requirements of the system, so they needed something that operated on a 32 bit bus.
+The DMA Chip is a very important chip in the system that handles all bitmap rendering. The DMA has a direct line to the Image / ROM Board. It also has a direct line to the Bitmap and Palette RAM. Again, the graphics are not rendered by the CPU even though the CPU could technically do it. The reason why is because the CPU bus is too small. It can only take in and output 16 bits. That's not enough to power the requirements of the system, so they needed something that operated on a 32 bit bus.
 
 In the games, there is a concept of "software sprites" and "software backgrounds". All the layering, object management and queues are managed by game software. DMA is simply responsible for pulling data from the ROM, and plotting it according to commands (also called modes) that are sent to it which describe the ways of processing the ROM Image Data before getting output to the Bitmap and Palette RAM. Normally, in other systems of the period, many had hardware sprites and graphics that would normally work by a custom chip.
 
@@ -94,7 +94,7 @@ Color RAM, is really referring to the source of the data where the master palett
 #### **B1, Lithium 3V Battery, for CMOS**
 All settings for the game persist in CMOS RAM. In order to do this, nonvolatile memory is kept alive by a Lithium Battery while the system does not have power to it. This is common in most computer motherboards now at days, and even back then for the BIOS. The FPGA Core of course saves CMOS RAM, persisting it on the SD Card, and loads it back up when the core is started.
 
-### Image/ ROM Board
+### Image / ROM Board
 <img src="images/image_rom_board_overview.png" width="800">
 
 #### Bill of Materials
@@ -168,7 +168,7 @@ Usually, we start our implementation with the main CPU of the system. This bring
 
 <img src="images/main_cpu_1.png" width="1600">
 
-Let's talk about the HD* pins - that's the host data bus of the TMS34010 CPU. The host data bus of the CPU allows access to the GSP/IO registers of the CPU in an addressable way to devices outside the CPU. So, for example, let's say you had a situation where the hardware needs to write to the GSP registers from outside the CPU, it can do that from the host data bus. Another use case is if you have another CPU that is operating alongside this CPU, like a 68k or something - that would use the host data bus as an interface too to do stuff.
+Let's talk about the HD* pins - that's the host data bus of the TMS34010 CPU. The host data bus of the CPU allows access to the GSP / IO registers of the CPU in an addressable way to devices outside the CPU. So, for example, let's say you had a situation where the hardware needs to write to the GSP registers from outside the CPU, it can do that from the host data bus. Another use case is if you have another CPU that is operating alongside this CPU, like a 68k or something - that would use the host data bus as an interface too to do stuff.
 
 As you can see, in this system they are all tied down, so they are not actually used.
 
@@ -188,7 +188,7 @@ This next piece in the schematic concerns DMA, how it connects into other things
 
 <img src="images/main_cpu_5.png" width="800">
 
-First of all, you can see that the U77 DMA chip has a line to the VRAM, labeled VIDEO ADDR BUS and VIDEO DATA BUS. It also has a line to the Image ROM Data as I have mentioned above. The RAS/ CAS lines are also indicative that this chip has a controller embedded within it to handle writes to the VRAM on its own. 
+First of all, you can see that the U77 DMA chip has a line to the VRAM, labeled VIDEO ADDR BUS and VIDEO DATA BUS. It also has a line to the Image ROM Data as I have mentioned above. The RAS / CAS lines are also indicative that this chip has a controller embedded within it to handle writes to the VRAM on its own. 
 
 #### **Memory Controllers**
 
@@ -259,7 +259,7 @@ Now, each of these registers are 16 bits in length, and not all of them are real
 
 As mentioned above, first the CPU program transfers the parameters of the DMA request to the DMA Chip over the bus, and finally performs a write to DMA_COMMAND to kick it off.
 
-The kick off process assembles and/or coerces the parameters in a usable form before transitioning to actually drawing it. The process here includes clipping if the parameters infer a partial region that may be drawn off-screen, or an Image ROM address that is considered invalid or of a different format that needs to be coerced.
+The kick off process assembles and / or coerces the parameters in a usable form before transitioning to actually drawing it. The process here includes clipping if the parameters infer a partial region that may be drawn off-screen, or an Image ROM address that is considered invalid or of a different format that needs to be coerced.
 
 The write to the DMA_COMMAND register carries with it the DMA mode under which to perform the drawing. A DMA mode is simply a way to process the pixel data before writing them to the VRAM. There are a total of 9 possible pixel processing operations for DMA. These are listed below:
 
@@ -285,7 +285,7 @@ The drawing process is basically starting at the `DMA_XSTART` (clipped) and `DMA
 
 Note that the chip itself takes care of invalid heights and widths, so the programmer does not necessarily need to handle cases like that. In fact, I had a bug on this where I expected the programmer to handle bad height and width values, but in a few of the games (on the Y unit) there are in fact invalid heights and widths to which you should not do anything and end the DMA operation.
 
-Also note there is a very specific data rate and throughput that must be adhered to in the drawing. It needs to be 41ns per pixel roughly, or 166ns for the whole series of 4 pixels pushed at a time through the bus. If this is not adhered to, bad things start happening like weird behaviors in the game and/or animations.
+Also note there is a very specific data rate and throughput that must be adhered to in the drawing. It needs to be 41ns per pixel roughly, or 166ns for the whole series of 4 pixels pushed at a time through the bus. If this is not adhered to, bad things start happening like weird behaviors in the game and / or animations.
 
 ### **VRAM Processes**
 
@@ -363,10 +363,10 @@ However, for the Z Unit, the test menu is actually rendered using the GPU, and s
 #### **CMOS RAM Areas**
 The CMOS RAM is split up into 4 banks that are controllable via the game program. Each bank has a specific kind of data in there that the game uses for different purposes.
 
-- Bank 0: System/ Misc Info (Static)
+- Bank 0: System / Misc Info (Static)
 - Bank 1: Settings
 - Bank 2: High Score Table
-- Bank 3: Empty/ Unused? Could be counters.
+- Bank 3: Empty / Unused? Could be counters.
 
 It is important to note that although the memory used for CMOS RAM on the board is a 16 bit addressing configuration, the actual interface is only 8 bits. So, the upper 8 bits go unused for every address. The entirety is 0x4000 bytes (0x1000 for each bank), total 16KB. Of course, on the board it would be 32KB, but half is unused.
 

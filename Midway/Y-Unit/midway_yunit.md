@@ -102,7 +102,7 @@ In the Main CPU board, they consolidated I/O, ROM and CPU in one. The sound boar
 
 All these games are different from each other from a board perspective, and so none of them can really be converted to one another.
 
-Like it's predecessor, the Y-Unit is really an extremely high performance memory mover. All the graphics and effects are achieved by moving data at high speed between the Image Data ROM/ Memory to VRAM. So, similar to the Z-Unit, this system also needs a very high throughput memory wise in order to be able to be functional.
+Like it's predecessor, the Y-Unit is really an extremely high performance memory mover. All the graphics and effects are achieved by moving data at high speed between the Image Data ROM / Memory to VRAM. So, similar to the Z-Unit, this system also needs a very high throughput memory wise in order to be able to be functional.
 
 ### **Component Similarites with the Z-Unit**
 The Y-Unit operates on the same CPU as the Z-Unit: Texas Instruments' TMS34010 Chip. As mentioned in the Z-Unit document, the CPU also has a GPU (actually widely regarded as the first commercial "GPU" in existence). 
@@ -198,7 +198,7 @@ So, as you can see from the above mapping chart, the 4bpp does in fact follow th
 #### **Autoerase PLD or Bulk Clearing**
 The Autoerase PLD, which I described in the Z-Unit document, is present on most of the boards in the Y-Unit except for Strike Force and Terminator 2. The two games that do not have it, instead opt to use the bulk clearing functionality on the GPU side of the TMS34010 in order to clear lines after they are output to the CRT.
 
-Originally, I eliminated the entire GPU from the Analogue Pocket Core and did not plan for any game to use any of the functionality legitimately. However, late in the course of development, I found that my code was not working for Strike Force and Terminator 2. Both games had problems and/or did not start correctly after the POST screens.
+Originally, I eliminated the entire GPU from the Analogue Pocket Core and did not plan for any game to use any of the functionality legitimately. However, late in the course of development, I found that my code was not working for Strike Force and Terminator 2. Both games had problems and / or did not start correctly after the POST screens.
 
 After some research, I found that both games do not have an Autoerase PLD and instead use the bulk clearing functionality of the CPU. To do this, the program issues a FILL instruction command with the shift register transfer flag (TRn) on. The clearing request is transferred to the memory controller and subsequently done by sending the command to the memory chip itself, where it does it under the function of the shift memory buffers embedded in the chip controller.
 
@@ -222,7 +222,7 @@ First of all, let's take a look at the Autoerase PLD. The functionality of the P
 
 This approach is suitable if you do not want to spend resources in the game managing and timing out a clear operation. Just simply do whatever it is you want to do in the game loop, and it should be fine. There is no need to have any special logic for clearing aside from loading clear values via a DMA operation at the start of the frame (as has to be done anyway, no matter what approach).
 
-However, this approach might introduce performance issues in the game. You need to account for a fixed block of time at the blanking interval which cannot be used for any other purpose other than clearing the previous line. Also, you of course need to spend money on yet another custom chip and route that on the board whose sole purpose is to clear lines. There's a cost/ trade benefit here.
+However, this approach might introduce performance issues in the game. You need to account for a fixed block of time at the blanking interval which cannot be used for any other purpose other than clearing the previous line. Also, you of course need to spend money on yet another custom chip and route that on the board whose sole purpose is to clear lines. There's a cost / trade benefit here.
 
 This brings us to the second approach - the bulk clearing via FILL. This method is native in the CPU, so no additional components need to be introduced on the board. It is extremely fast when used correctly too. It is managed under the guidance of the game program, so you are not caught off-guard performance wise by the fixed time needed by the Autoerase PLD. You can do the clearing when and where you want, and for the duration you want, every time, every frame. Or, mabe even never for that frame if you wanted to. although, for the Autoerase PLD, you could turn it on and off too via flag for certain lines.
 

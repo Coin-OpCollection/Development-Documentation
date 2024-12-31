@@ -67,7 +67,7 @@ On the address bus, the 68K performs operations and makes requests to the GP9001
 |0x40000A|Write|Set GP9001 RAM Pointer|
 
 The RAM in question that is connected to the GP9001 is basically a contiguous RAM that comprises:
-- Sprite RAM (Double/Triple Buffered, depending on game)
+- Sprite RAM (Double / Triple Buffered, depending on game)
 - Scroll Layer 0 RAM
 - Scroll Layer 1 RAM
 - Scroll Layer 2 RAM
@@ -181,11 +181,11 @@ The below is the process of rendering the object layer:
   - Sprite ID
   - Palette ID
   - Priority Level
-  - Flip X/Y
+  - Flip X / Y
   - Multiconnected Sprite
   - Enabled
-  - Width/ Height
-  - X/Y Position
+  - Width / Height
+  - X / Y Position
 
 As a note for this and also for the scroll layers, only non blank pixels should be rendered. Also, since things are line buffer based with a queue, there is no need to care about clearing of the source queue for the objects or tiles. The line buffers are automatically cleared following rendering to the CRT.
 
