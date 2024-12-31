@@ -1,9 +1,30 @@
-# **Midway Z-Unit**
-## **Introduction**
-This document is a schematics-based overview of the Midway Z-Unit System, which is supported by images scanned by myself from the NARC service manual. In this overview, you will see sections of the schematics presented alongside technical information and implementation details from the Midway Z-Unit Core for the Analogue Pocket we have released.
+# **Williams Z-Unit Hardware Overview**
 
-### **Legal Mumbo-Jumbo**
-Unfortunately, with the way everything has become now at days, I have to state that it is perfectly OK to link to this site and use materials from it ONLY if proper attribution is made. If you want to do something else with it and have any doubts, please contact us and we can answer. But please, do not be like certain people and just randomly create YouTube videos and posts without proper attribution, and always link back to the source.
+<table>
+  <tr>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/0961f6bb-e82c-480e-bfb3-4e6646fc1917">
+      <img src="https://github.com/user-attachments/assets/c4dd3150-54ae-476b-9125-04920ce530af"><br>
+      <b>NARC</b><br>
+      <i>(16-3036-101)</i>
+    </td>
+  </tr>
+</table>
+
+## Document Links
+
+- [Z-Unit Hardware Overview (*this document*)](/Midway/Z-Unit/midway_zunit.md)
+  - [Z-Unit PCB Reference, Layout, and Schematics](/Midway/Z-Unit/raw_schematics)
+    - [NARC Service Manual (1988/12/15)](/Midway/Z-Unit/public_documents/1988_12_15_NARC_16-3036-101.pdf)
+    - [NARC Service Manual (1989/02/xx)](/Midway/Z-Unit/public_documents/1989_02_XX_NARC_16-3036-101.pdf)
+
+## **Introduction**
+This document is a schematics-based overview of the Williams Z-Unit System, which is supported by images scanned by [Pramod Somashekar](https://github.com/Coin-OpCollection/CoC-Development/commits?author=psomashekar) from his NARC service manual. In this overview, you will see sections of the schematics presented alongside technical information and implementation details from the Williams Z-Unit Core released for the Analogue Pocket.
+
+### **Disclaimer:**
+The materials provided on this site are [licensed](https://github.com/Coin-OpCollection/CoC-Development/edit/main/Midway/Z-Unit/midway_zunit.md#license) under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). You are free to share, copy, redistribute, remix, transform, and build upon the material, provided that appropriate credit is given to [Coin-Op Collection](https://github.com/Coin-OpCollection), including a link to the source and license, and an indication of any changes made. Attribution must be presented in a reasonable manner that does not imply endorsement by the licensor.
+
+The materials may not be used for commercial purposes, and any adaptations or derivatives must be distributed under the same license as the original. If you wish to use the content in a way that falls outside these terms or have any questions, please contact us directly. Unauthorized use, such as creating derivative works like YouTube videos or posts without proper attribution or linking back to the source, is not permitted.
 
 ## **High Level Architecture**
 <img src="images/system_overview.png" width="1200">
@@ -14,9 +35,7 @@ The Z-Unit architecture is composed totally of 4 boards.
 - I/O Board
 - Sound Board
 
-All of these boards must be connected to eachother in a specific way, as outlined by the diagram above. Therefore, the most practical way to connect the system in a cabinet or home scenario is to have a mounting board and lay out all the pieces as shown. Then, connect the ribbon cables and also the power supply/ transformer to the side.
-
-As it is very difficult to do this, and I might be missing some of the interface cables, during development, I did not hook up the board and observe it normally as I usually do as it was impractical for me to do so. I physically inspected the boards and reviewed certain parts as development commenced, but did not go through the expense of actually hooking things up. The transformer/ power supply I have does not support NARC as it needs enough power to power all the boards.
+All of these boards must be connected to each other in a specific way, as outlined by the diagram above. Therefore, the most practical way to connect the system in a cabinet or home scenario is to have a mounting board and lay out all the pieces as shown. Then, connect the ribbon cables and also the power supply/ transformer to the side.
 
 ### **Main CPU Board**
 <img src="images/main_cpu_board_overview.png" width="800">
@@ -202,7 +221,7 @@ Now, let's consider a more complicated and practical example. Let's suppose that
 
 <img src="images/16bitvs1bitaddr.png" width="500">
 
-So, there are possibilities where straddling can occur in this scheme, and you need to perform multiple reads in those cases, and concatenate the appropriate bits to return back to the CPU. This entire scheme of determining the correct field to mask or concatenate off for both reads and writes is handled by the memory controllers that layer on top of eachother in the FPGA core. This way, the CPU has a 1-bit interface to a 16-bit memory.
+So, there are possibilities where straddling can occur in this scheme, and you need to perform multiple reads in those cases, and concatenate the appropriate bits to return back to the CPU. This entire scheme of determining the correct field to mask or concatenate off for both reads and writes is handled by the memory controllers that layer on top of each other in the FPGA core. This way, the CPU has a 1-bit interface to a 16-bit memory.
 
 #### **DMA Operations and Functionality**
 

@@ -1,0 +1,222 @@
+(footprint "Potentiometer_Piher_PT-6-V_Vertical"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(descr "Potentiometer, vertical, Piher PT-6-V, http://www.piher-nacesa.com/pdf/11-PT6v03.pdf")
+	(tags "Potentiometer vertical Piher PT-6-V")
+	(property "Reference" "REF**"
+		(at 2.5 -7.06 0)
+		(layer "F.SilkS")
+		(uuid "331cf623-dd5d-41be-97a0-ed1b852270e2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Potentiometer_Piher_PT-6-V_Vertical"
+		(at 2.5 2.06 0)
+		(layer "F.Fab")
+		(uuid "a5f99f2b-0571-422f-8a85-b10e8afcf38d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "83a34264-f1ec-4674-9ead-aab94c78119f")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "640aa917-eab3-45e9-90fd-c0e0bf1ca441")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "05c44d14-e56b-46f9-ba50-17894ce9de78")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_arc
+		(start -0.413387 -1.014798)
+		(mid -0.770114 -2.499325)
+		(end -0.414 -3.984)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "4298cf80-401a-4510-a0ef-5b33bf6e64f1")
+	)
+	(fp_arc
+		(start 1.016032 -5.413829)
+		(mid 3.725524 -5.531609)
+		(end 5.592 -3.564)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "3772f5bc-c300-4820-b536-2692040dd1de")
+	)
+	(fp_arc
+		(start 2.556863 0.770075)
+		(mid 1.764071 0.686696)
+		(end 1.015 0.414)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d0124c12-cb14-4367-92d9-145aeb7ecd17")
+	)
+	(fp_arc
+		(start 5.591846 -1.435392)
+		(mid 4.398899 0.162158)
+		(end 2.5 0.77)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "fa3a96c0-0e55-4601-b9ee-f64cc0da5c44")
+	)
+	(fp_line
+		(start -1.1 -6.1)
+		(end -1.1 1.1)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "a0363ac5-8e79-4033-b70d-04da4148f4ef")
+	)
+	(fp_line
+		(start -1.1 1.1)
+		(end 6.1 1.1)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "c19f2268-a78c-4c5a-be63-33be9a93b49e")
+	)
+	(fp_line
+		(start 6.1 -6.1)
+		(end -1.1 -6.1)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "3b24c331-f201-4fc5-a432-830dd61b2493")
+	)
+	(fp_line
+		(start 6.1 1.1)
+		(end 6.1 -6.1)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "0c284d98-d2d8-4036-9e45-dd911022d40a")
+	)
+	(fp_circle
+		(center 2.5 -2.5)
+		(end 3.4 -2.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.Fab")
+		(uuid "837d9382-c87a-4b57-809c-c25a9ae42c63")
+	)
+	(fp_circle
+		(center 2.5 -2.5)
+		(end 5.65 -2.5)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.Fab")
+		(uuid "f3f1d197-4398-4906-8ede-80b34c8fef14")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0.55 -2.5 90)
+		(layer "F.Fab")
+		(uuid "fb551848-cdab-49f7-a2dd-7071a0089dad")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 0 0)
+		(size 1.62 1.62)
+		(drill 0.9)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "aec0de94-9cec-48a8-9110-8edaa035510a")
+	)
+	(pad "2" thru_hole circle
+		(at 5 -2.5)
+		(size 1.62 1.62)
+		(drill 0.9)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "cee45798-5b43-4bbc-b197-6f98e082e8a5")
+	)
+	(pad "3" thru_hole circle
+		(at 0 -5)
+		(size 1.62 1.62)
+		(drill 0.9)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "9fb7a121-69d9-48fa-bc1d-059190adef32")
+	)
+	(model "${KICAD8_3DMODEL_DIR}/Potentiometer_THT.3dshapes/Potentiometer_Piher_PT-6-V_Vertical.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

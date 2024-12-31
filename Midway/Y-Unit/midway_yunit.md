@@ -1,9 +1,85 @@
-# **Midway Y-Unit**
-## **Introduction**
-This document is a select overview of the Midway Y-Unit System. Before reading this, please see the Z-Unit documentation, as a lot of it is similar and shares the same design principles and components. Think of the Y-Unit as an evolved and optimized Z-Unit system. This document will cover largely the differences from the Z-Unit.
+# **Williams / Midway Y-Unit Hardware Overview**
 
-### **Legal Mumbo-Jumbo**
-Unfortunately, with the way everything has become now at days, I have to state that it is perfectly OK to link to this site and use materials from it ONLY if proper attribution is made. If you want to do something else with it and have any doubts, please contact us and we can answer. But please, do not be like certain people and just randomly create YouTube videos and posts without proper attribution, and always link back to the source.
+### CVSD Sound Board Variant:
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/c90e5068-ff9c-4086-bad7-7894afce1e08">
+      <img src="https://github.com/user-attachments/assets/9b5c80da-92dd-4885-9bab-1e9305f0d926"><br>
+      <b>Smash TV</b><br>
+      <i>(16-3044-K-101)</i>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/9151835a-f2d7-4351-ab26-4483b8faf9b8">
+      <img src="https://github.com/user-attachments/assets/1808a3f6-5cb8-4ba0-82c0-d8a2a0246781"><br>
+      <b>Trog</b><br>
+      <i>(16-40003A-101)</i>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/c6d574af-da15-49b2-a47b-9d571d98705b">
+      <img src="https://github.com/user-attachments/assets/950fadab-87d2-4275-8cad-6f80daab0437"><br>
+      <b>High Impact</b><br>
+      <i>(16-40104-101)</i>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/fc9e01d9-00e8-436e-81d1-da34e373be65"><br>
+      <b>Strike Force</b><br>
+      <i>(16-42413-101)</i>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/3801b625-7f97-498d-820e-c814bc173ade">
+      <img src="https://github.com/user-attachments/assets/aeefff49-1c0f-4089-8de9-15b1b02cb72e"><br>
+      <b>Super High Impact</b><br>
+      <i>(16-43117-101)</i>
+    </td>
+  </tr>
+</table>
+
+### ADPCM Sound Board Variant:
+<table>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/eeae9974-1a4c-4ac0-baf7-5ab0fef0bba3">
+      <img src="https://github.com/user-attachments/assets/cfdd0b67-d22a-463d-accf-9e7f534e60e8"><br>
+      <b>T2: Judgment Day</b><br>
+      <i>(16-40009-101)</i>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/8a71be96-e4dd-4b60-accc-a4e582c23791">
+      <img src="https://github.com/user-attachments/assets/98b5dd95-f2c5-4872-9e27-12687adf5a9a"><br>
+      <b>Total Carnage</b><br>
+      <i>(16-40010-101)</i>
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/92d68b1f-d793-4565-a224-b814c8ccf2e5">
+      <img src="https://github.com/user-attachments/assets/d03d9fc0-7533-4c61-87f4-09cde42d6c58"><br>
+      <b>Mortal Kombat</b><br>
+      <i>(16-43125-101)</i>
+    </td>
+  </tr>
+</table>
+
+## Document Links
+
+- [Y-Unit Hardware Overview (*this document*)](/Midway/Y-Unit/midway_yunit.md)
+  - [Y-Unit Service Manuals and Schematics](/Midway/Y-Unit/public_documents)
+    - [Smash TV Schematics](/Midway/Y-Unit/public_documents/1990_09_XX_Smash_TV_16-3044-K-101.pdf)
+    - [Trog Schematics](/Midway/Y-Unit/public_documents/1990_09_XX_Trog_16-40003A-101.pdf)
+    - [High Impact Football Schematics](/Midway/Y-Unit/public_documents/1990_12_XX_High_Impact_Football_16-40104-101.pdf)
+    - [Strike Force Schematics](/Midway/Y-Unit/public_documents/1991_02_XX_Strike_Force_16-42413-101.pdf)
+    - [Super High Impact Football Schematics](/Midway/Y-Unit/public_documents/1991_09_XX_Super_High_Impact_16-43117-101.pdf)
+    - [Terminator 2: Judgement Day Schematics](/Midway/Y-Unit/public_documents/1991_12_XX_T2_Judgement_Day_16-40009-101-1.pdf)
+    - [Total Carnage Schematics](/Midway/Y-Unit/public_documents/1992_01_XX_Total_Carnage_16-40010-101.pdf)
+    - [Mortal Kombat Schematics](/Midway/Y-Unit/public_documents/1992_08_XX_Mortal_Kombat_16-43125-101.pdf)
+  
+## **Introduction**
+This document is a select overview of the WIlliams / Midway Y-Unit System. Before reading this, please see the Z-Unit documentation, as a lot of it is similar and shares the same design principles and components. Think of the Y-Unit as an evolved and optimized Z-Unit system. This document will cover largely the differences between the Z-Unit and Y-Unit hardware.
+
+### **Disclaimer:**
+The materials provided on this site are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). You are free to share, copy, redistribute, remix, transform, and build upon the material, provided that appropriate credit is given to [Coin-Op Collection](https://github.com/Coin-OpCollection), including a link to the source and license, and an indication of any changes made. Attribution must be presented in a reasonable manner that does not imply endorsement by the licensor.
+
+The materials may not be used for commercial purposes, and any adaptations or derivatives must be distributed under the same license as the original. If you wish to use the content in a way that falls outside these terms or have any questions, please contact us directly. Unauthorized use, such as creating derivative works like YouTube videos or posts without proper attribution or linking back to the source, is not permitted.
 
 ## **High Level Architecture**
 In the Z-Unit architecture, there was a total of 4 boards: Main CPU, I/O, Sound and Image ROM. However, in the Y-Unit, there are only 2 boards:
@@ -11,26 +87,27 @@ In the Z-Unit architecture, there was a total of 4 boards: Main CPU, I/O, Sound 
 - Main CPU
 - Sound
 
-In the Main CPU board, they consolidated I/O, ROM and CPU in one. The sound board still communicates and has an interface with the Main CPU board via a "talkback" interface ribbon cable, however.
+In the Main CPU board, they consolidated I/O, ROM and CPU in one. The sound board still communicates and has an interface with the Main CPU board via a "talkback" interface ribbon cable, however. In total, there are 8 games that the Y-Unit platform supports listed below.
 
-In total, there are 8 games that the Y-Unit platform supports:
-- Smash TV
-- Total Carnage
-- Trog
-- Strike Force
-- High Impact Football
-- Super High Impact Football
-- Terminator 2
-- Mortal Kombat
+#### CVSD (Continuous Variable Slope Delta-Modulator) Titles:
+  - Smash TV
+  - Trog
+  - High Impact Football
+  - Strike Force
+  - Super High Impact Football
+#### ADPCM (Adaptive Differential Pulse-Code Modulation) Titles:
+  - Terminator 2: Judgement Day
+  - Total Carnage
+  - Mortal Kombat
 
-All these games are different from eachother from a board perspective, and so none of them can really be converted to one another.
+All these games are different from each other from a board perspective, and so none of them can really be converted to one another.
 
 Like it's predecessor, the Y-Unit is really an extremely high performance memory mover. All the graphics and effects are achieved by moving data at high speed between the Image Data ROM/ Memory to VRAM. So, similar to the Z-Unit, this system also needs a very high throughput memory wise in order to be able to be functional.
 
 ### **Component Similarites with the Z-Unit**
 The Y-Unit operates on the same CPU as the Z-Unit: Texas Instruments' TMS34010 Chip. As mentioned in the Z-Unit document, the CPU also has a GPU (actually widely regarded as the first commercial "GPU" in existence). 
 
-However, Midway did not actually use the GPU in the TMS34010 for much except the POST screens. In the Analogue Pocket Core, the GPU has been eliminated because it took up too much LE. I will revive this in the MARS core release.
+However, Williams / Midway did not actually use the GPU in the TMS34010 for much except the POST screens. In the Analogue Pocket Core, the GPU has been eliminated because it took up too much LE. I will revive this when MARS and future next-generation FPGA platforms release.
 
 The same DMA Custom Chip is used in the Y-Unit to draw graphics and also to act as an interface to the Image Data ROM. I have documented this in the Z-Unit document.
 
@@ -38,7 +115,7 @@ The same DMA Custom Chip is used in the Y-Unit to draw graphics and also to act 
 The Y-Unit is largely the same as the Z-Unit from an architectural standpoint except it consolidates much of the components in a single board, save for sound. There are, however, a number of differences in the Y-Unit functionally speaking.
 
 #### **Protection**
-Midway introduced a protection IC as apart of most of the Y Unit boards. I believe all of them have a protection IC except Smash TV. 
+Midway introduced a protection IC as apart of most of the Y Unit boards. All of the Y-Unit boards have a protection IC except Smash TV and Strike Force (*see below*).
 
 If the protection chip is invalid on the board, a black screen occurs and the game doesn't display anything when turned on. In Total Carnage, weird things seem to happen if the protection chip is not valid. Controls seem to be messed up and a black screen occurs at some point, though not at the very beginning like the other boards.
 
