@@ -6,8 +6,8 @@
 	(paper "A" portrait)
 	(title_block
 		(title "RA9704, JAMMA")
-		(date "2024-12-30")
-		(rev "003")
+		(date "2024-12-31")
+		(rev "004")
 		(company "Coin-Op Collection")
 		(comment 1 "Author: Brandon Arnold")
 		(comment 2 "License: CC BY-NC-SA 4.0")
