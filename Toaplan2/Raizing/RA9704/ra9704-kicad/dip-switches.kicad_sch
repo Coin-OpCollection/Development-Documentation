@@ -6,8 +6,8 @@
 	(paper "A" portrait)
 	(title_block
 		(title "RA9704, DIP Switches")
-		(date "2024-12-30")
-		(rev "003")
+		(date "2024-12-31")
+		(rev "004")
 		(company "Coin-Op Collection")
 		(comment 1 "Author: Brandon Arnold")
 		(comment 2 "License: CC BY-NC-SA 4.0")
@@ -6796,7 +6796,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5191f22d-c95e-48b7-b804-d2f83647dcda")
-		(property "Reference" "RA33"
+		(property "Reference" "RAO33"
 			(at 165.1 95.758 90)
 			(effects
 				(font
@@ -6871,7 +6871,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/8f77968a-d5b7-4368-9f67-422488c409cc"
-					(reference "RA33")
+					(reference "RAO33")
 					(unit 1)
 				)
 			)
@@ -6887,7 +6887,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "534bb484-8080-41c2-bcdb-5e085c5ed9a0")
-		(property "Reference" "U326"
+		(property "Reference" "UO326"
 			(at 115.2241 134.62 0)
 			(effects
 				(font
@@ -6995,7 +6995,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/8f77968a-d5b7-4368-9f67-422488c409cc"
-					(reference "U326")
+					(reference "UO326")
 					(unit 1)
 				)
 			)
@@ -7011,7 +7011,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "53856653-56ec-4797-8be4-7f13a8bad8c4")
-		(property "Reference" "U325"
+		(property "Reference" "UO325"
 			(at 55.5341 133.35 0)
 			(effects
 				(font
@@ -7119,7 +7119,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/8f77968a-d5b7-4368-9f67-422488c409cc"
-					(reference "U325")
+					(reference "UO325")
 					(unit 1)
 				)
 			)
@@ -7202,7 +7202,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "60088b9e-6e63-42d2-9758-829a8efc5320")
-		(property "Reference" "U332"
+		(property "Reference" "UO332"
 			(at 174.9141 134.62 0)
 			(effects
 				(font
@@ -7310,7 +7310,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/8f77968a-d5b7-4368-9f67-422488c409cc"
-					(reference "U332")
+					(reference "UO332")
 					(unit 1)
 				)
 			)
@@ -7702,7 +7702,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9df8c804-96b5-4632-9e25-960b0a945f97")
-		(property "Reference" "RA32"
+		(property "Reference" "RAO32"
 			(at 105.664 95.504 90)
 			(effects
 				(font
@@ -7777,7 +7777,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/8f77968a-d5b7-4368-9f67-422488c409cc"
-					(reference "RA32")
+					(reference "RAO32")
 					(unit 1)
 				)
 			)
@@ -7792,7 +7792,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bbd2d5c7-80a3-4f54-8385-b660a0b1a4ef")
-		(property "Reference" "RA31"
+		(property "Reference" "RAO31"
 			(at 44.704 94.234 90)
 			(effects
 				(font
@@ -7867,7 +7867,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/8f77968a-d5b7-4368-9f67-422488c409cc"
-					(reference "RA31")
+					(reference "RAO31")
 					(unit 1)
 				)
 			)

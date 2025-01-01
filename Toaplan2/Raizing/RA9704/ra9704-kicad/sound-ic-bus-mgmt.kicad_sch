@@ -6,8 +6,8 @@
 	(paper "A" portrait)
 	(title_block
 		(title "RA9704, Sound IC and Bus Mgmt")
-		(date "2024-12-30")
-		(rev "003")
+		(date "2024-12-31")
+		(rev "004")
 		(company "Coin-Op Collection")
 		(comment 1 "Author: Brandon Arnold")
 		(comment 2 "License: CC BY-NC-SA 4.0")
@@ -5545,7 +5545,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a2435a47-6a87-4d0f-8f4c-508d85837b30")
-		(property "Reference" "U716"
+		(property "Reference" "UO716"
 			(at 164.7541 53.34 0)
 			(effects
 				(font
@@ -5653,7 +5653,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/2c170486-a7cf-4da9-9098-f4bf25efe1be"
-					(reference "U716")
+					(reference "UO716")
 					(unit 1)
 				)
 			)
@@ -5668,8 +5668,8 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a585d64d-24e7-4ee3-9e01-682c1c4df46a")
-		(property "Reference" "U76"
-			(at 98.044 174.498 0)
+		(property "Reference" "UO76"
+			(at 94.234 173.228 0)
 			(effects
 				(font
 					(size 6.35 6.35)
@@ -5920,7 +5920,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/2c170486-a7cf-4da9-9098-f4bf25efe1be"
-					(reference "U76")
+					(reference "UO76")
 					(unit 1)
 				)
 			)
@@ -6202,7 +6202,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d52e958d-0fab-4756-82cc-5215e2317a8b")
-		(property "Reference" "U715"
+		(property "Reference" "UO715"
 			(at 66.9641 54.61 0)
 			(effects
 				(font
@@ -6310,7 +6310,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/2c170486-a7cf-4da9-9098-f4bf25efe1be"
-					(reference "U715")
+					(reference "UO715")
 					(unit 1)
 				)
 			)

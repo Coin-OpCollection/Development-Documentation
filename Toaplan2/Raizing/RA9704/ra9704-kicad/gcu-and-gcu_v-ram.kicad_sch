@@ -6,8 +6,8 @@
 	(paper "B")
 	(title_block
 		(title "RA9704, GCU and GCU_V RAM")
-		(date "2024-12-30")
-		(rev "003")
+		(date "2024-12-31")
+		(rev "004")
 		(company "Coin-Op Collection")
 		(comment 1 "Author: Brandon Arnold")
 		(comment 2 "License: CC BY-NC-SA 4.0")
@@ -14688,7 +14688,7 @@
 		)
 		(uuid "05d4e27a-996d-4f5d-b945-27becf32d69d")
 	)
-	(label "U46_DQ12"
+	(label "UO46_DQ12"
 		(at 334.01 125.73 0)
 		(fields_autoplaced yes)
 		(effects
@@ -14776,7 +14776,7 @@
 		)
 		(uuid "1173ce73-f81e-4c22-b62e-7d7e3b12e773")
 	)
-	(label "U47_DQ12"
+	(label "UO47_DQ12"
 		(at 317.5 82.55 0)
 		(fields_autoplaced yes)
 		(effects
@@ -14842,7 +14842,7 @@
 		)
 		(uuid "17870d8f-0729-4d0f-aa47-1d5229f388c4")
 	)
-	(label "U47_DQ13"
+	(label "UO47_DQ13"
 		(at 334.01 133.35 0)
 		(fields_autoplaced yes)
 		(effects
@@ -14875,7 +14875,7 @@
 		)
 		(uuid "1a39b439-e7fb-4d2a-89e1-eb4f431f1e37")
 	)
-	(label "U47_DQ12"
+	(label "UO47_DQ12"
 		(at 334.01 135.89 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15216,7 +15216,7 @@
 		)
 		(uuid "39d98aff-8c7e-473a-abab-ab0d67403d00")
 	)
-	(label "U46_DQ12"
+	(label "UO46_DQ12"
 		(at 387.35 82.55 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15491,7 +15491,7 @@
 		)
 		(uuid "4ef4992a-978b-4a14-9f5a-31d1b5895e38")
 	)
-	(label "U46_DQ14"
+	(label "UO46_DQ14"
 		(at 387.35 87.63 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15667,7 +15667,7 @@
 		)
 		(uuid "5ad91b48-2b2d-42c9-83b5-73a0163f7636")
 	)
-	(label "U47_DQ14"
+	(label "UO47_DQ14"
 		(at 317.5 87.63 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15788,7 +15788,7 @@
 		)
 		(uuid "666e678c-bc89-45bb-95dd-3f85c0247561")
 	)
-	(label "U46_DQ14"
+	(label "UO46_DQ14"
 		(at 334.01 120.65 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15931,7 +15931,7 @@
 		)
 		(uuid "740d7fe8-1bff-46a7-bd1e-c3c0c57d7b0f")
 	)
-	(label "U46_DQ13"
+	(label "UO46_DQ13"
 		(at 334.01 123.19 0)
 		(fields_autoplaced yes)
 		(effects
@@ -15942,7 +15942,7 @@
 		)
 		(uuid "7535d055-7bc0-4d31-9098-b92ec0d3e643")
 	)
-	(label "U46_DQ15"
+	(label "UO46_DQ15"
 		(at 334.01 118.11 0)
 		(fields_autoplaced yes)
 		(effects
@@ -16118,7 +16118,7 @@
 		)
 		(uuid "82e14911-77b5-46d1-ae7b-a6c644be3115")
 	)
-	(label "U47_DQ14"
+	(label "UO47_DQ14"
 		(at 334.01 130.81 0)
 		(fields_autoplaced yes)
 		(effects
@@ -16261,7 +16261,7 @@
 		)
 		(uuid "8c95b82b-478f-4c24-8ce9-19127e1712f8")
 	)
-	(label "U46_DQ15"
+	(label "UO46_DQ15"
 		(at 387.35 90.17 0)
 		(fields_autoplaced yes)
 		(effects
@@ -16877,7 +16877,7 @@
 		)
 		(uuid "c21b1664-5198-4659-ade3-ea009d89e104")
 	)
-	(label "U47_DQ15"
+	(label "UO47_DQ15"
 		(at 317.5 90.17 0)
 		(fields_autoplaced yes)
 		(effects
@@ -17009,7 +17009,7 @@
 		)
 		(uuid "cd241740-e907-4f75-9f87-f75241e9c4a6")
 	)
-	(label "U47_DQ15"
+	(label "UO47_DQ15"
 		(at 334.01 128.27 0)
 		(fields_autoplaced yes)
 		(effects
@@ -17207,7 +17207,7 @@
 		)
 		(uuid "df377ac6-5ae4-4576-bad3-a8f6d5b2b810")
 	)
-	(label "U46_DQ13"
+	(label "UO46_DQ13"
 		(at 387.35 85.09 0)
 		(fields_autoplaced yes)
 		(effects
@@ -17405,7 +17405,7 @@
 		)
 		(uuid "ecff0ac8-613a-456d-a00b-1f3d228fb36a")
 	)
-	(label "U47_DQ13"
+	(label "UO47_DQ13"
 		(at 317.5 85.09 0)
 		(fields_autoplaced yes)
 		(effects
@@ -18000,7 +18000,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1926552e-edb6-4e89-aa44-33aa83186a88")
-		(property "Reference" "U125"
+		(property "Reference" "UO125"
 			(at 298.1041 173.99 0)
 			(effects
 				(font
@@ -18108,7 +18108,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/4c59c4b7-e848-4b36-8bfe-90f55a1ec475"
-					(reference "U125")
+					(reference "UO125")
 					(unit 1)
 				)
 			)
@@ -18123,7 +18123,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1cb4e59b-c0aa-40fd-804b-bae6526413f3")
-		(property "Reference" "RA41"
+		(property "Reference" "RA041"
 			(at 349.504 113.284 90)
 			(effects
 				(font
@@ -18198,7 +18198,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/4c59c4b7-e848-4b36-8bfe-90f55a1ec475"
-					(reference "RA41")
+					(reference "RA041")
 					(unit 1)
 				)
 			)
@@ -18410,7 +18410,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3a2f3a31-91c1-4cbd-b06c-33dc86de0147")
-		(property "Reference" "U126"
+		(property "Reference" "UO126"
 			(at 362.8741 173.99 0)
 			(effects
 				(font
@@ -18518,7 +18518,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/4c59c4b7-e848-4b36-8bfe-90f55a1ec475"
-					(reference "U126")
+					(reference "UO126")
 					(unit 1)
 				)
 			)
@@ -18665,7 +18665,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8f20a02c-f5af-45e5-b58a-d54a0f28dd9c")
-		(property "Reference" "U47"
+		(property "Reference" "UO47"
 			(at 308.61 44.704 0)
 			(effects
 				(font
@@ -18821,7 +18821,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/4c59c4b7-e848-4b36-8bfe-90f55a1ec475"
-					(reference "U47")
+					(reference "UO47")
 					(unit 1)
 				)
 			)
@@ -18902,7 +18902,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a2722298-1a19-4a22-9d67-bdc9a2a3ec0b")
-		(property "Reference" "U46"
+		(property "Reference" "UO46"
 			(at 377.952 44.704 0)
 			(effects
 				(font
@@ -19058,7 +19058,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/4c59c4b7-e848-4b36-8bfe-90f55a1ec475"
-					(reference "U46")
+					(reference "UO46")
 					(unit 1)
 				)
 			)
@@ -19402,8 +19402,8 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fd636beb-07f6-4bc1-9458-66da97face47")
-		(property "Reference" "U42"
-			(at 124.968 133.35 0)
+		(property "Reference" "UO42"
+			(at 117.348 132.842 0)
 			(effects
 				(font
 					(size 15.24 15.24)
@@ -20074,7 +20074,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/4c59c4b7-e848-4b36-8bfe-90f55a1ec475"
-					(reference "U42")
+					(reference "UO42")
 					(unit 1)
 				)
 			)

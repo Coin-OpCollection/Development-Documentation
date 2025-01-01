@@ -6,8 +6,8 @@
 	(paper "B")
 	(title_block
 		(title "RA9704, GCU_F ROM and RAM")
-		(date "2024-12-30")
-		(rev "003")
+		(date "2024-12-31")
+		(rev "004")
 		(company "Coin-Op Collection")
 		(comment 1 "Author: Brandon Arnold")
 		(comment 2 "License: CC BY-NC-SA 4.0")
@@ -18084,7 +18084,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0bd3c05f-6279-4572-b59c-6e796af795ea")
-		(property "Reference" "U512"
+		(property "Reference" "UO512"
 			(at 130.4641 49.53 0)
 			(effects
 				(font
@@ -18258,7 +18258,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/55e61f45-c86a-46c0-98af-469f87fdc572"
-					(reference "U512")
+					(reference "UO512")
 					(unit 1)
 				)
 			)
@@ -18273,7 +18273,7 @@
 		(on_board yes)
 		(dnp yes)
 		(uuid "0e96e91c-f142-420e-a1aa-fc66d68ddd90")
-		(property "Reference" "J516"
+		(property "Reference" "JO516"
 			(at 296.672 43.434 0)
 			(effects
 				(font
@@ -18440,7 +18440,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/55e61f45-c86a-46c0-98af-469f87fdc572"
-					(reference "J516")
+					(reference "JO516")
 					(unit 1)
 				)
 			)
@@ -18587,7 +18587,7 @@
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "16b23129-47ae-421f-a285-ea23998904c2")
-		(property "Reference" "U514"
+		(property "Reference" "UO514"
 			(at 195.2341 50.8 0)
 			(effects
 				(font
@@ -18761,7 +18761,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/55e61f45-c86a-46c0-98af-469f87fdc572"
-					(reference "U514")
+					(reference "UO514")
 					(unit 1)
 				)
 			)
@@ -19574,7 +19574,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "56f19d0d-4877-4b2f-8456-396a67f5ef59")
-		(property "Reference" "U44"
+		(property "Reference" "UO44"
 			(at 286.6741 153.67 0)
 			(effects
 				(font
@@ -19703,7 +19703,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/55e61f45-c86a-46c0-98af-469f87fdc572"
-					(reference "U44")
+					(reference "UO44")
 					(unit 1)
 				)
 			)
@@ -19849,7 +19849,7 @@
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "6931f3b8-708f-47eb-8318-c8ba378c76bb")
-		(property "Reference" "U515"
+		(property "Reference" "UO515"
 			(at 195.2341 176.53 0)
 			(effects
 				(font
@@ -20023,7 +20023,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/55e61f45-c86a-46c0-98af-469f87fdc572"
-					(reference "U515")
+					(reference "UO515")
 					(unit 1)
 				)
 			)
@@ -20170,7 +20170,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "793178cf-a4aa-47b7-b6d7-ec3924388b48")
-		(property "Reference" "U513"
+		(property "Reference" "UO513"
 			(at 130.4641 176.53 0)
 			(effects
 				(font
@@ -20344,7 +20344,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/55e61f45-c86a-46c0-98af-469f87fdc572"
-					(reference "U513")
+					(reference "UO513")
 					(unit 1)
 				)
 			)
@@ -20698,7 +20698,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b1dfdd51-e791-4b0d-8b82-c439bfbce99f")
-		(property "Reference" "U510"
+		(property "Reference" "UO510"
 			(at 65.6941 49.53 0)
 			(effects
 				(font
@@ -20872,7 +20872,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/55e61f45-c86a-46c0-98af-469f87fdc572"
-					(reference "U510")
+					(reference "UO510")
 					(unit 1)
 				)
 			)
@@ -21019,7 +21019,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b90027a2-8eff-4428-99cf-f290b1f6eb0b")
-		(property "Reference" "U45"
+		(property "Reference" "UO45"
 			(at 357.7941 153.67 0)
 			(effects
 				(font
@@ -21148,7 +21148,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/55e61f45-c86a-46c0-98af-469f87fdc572"
-					(reference "U45")
+					(reference "UO45")
 					(unit 1)
 				)
 			)
@@ -21228,7 +21228,7 @@
 		(on_board yes)
 		(dnp yes)
 		(uuid "befb99ad-f1e4-42ed-badd-9678330259eb")
-		(property "Reference" "J517"
+		(property "Reference" "JO517"
 			(at 361.442 42.164 0)
 			(effects
 				(font
@@ -21395,7 +21395,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/55e61f45-c86a-46c0-98af-469f87fdc572"
-					(reference "J517")
+					(reference "JO517")
 					(unit 1)
 				)
 			)
@@ -21747,7 +21747,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dec2768a-c8fb-475a-8579-4f8249b063e2")
-		(property "Reference" "U511"
+		(property "Reference" "UO511"
 			(at 65.6941 176.53 0)
 			(effects
 				(font
@@ -21921,7 +21921,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/55e61f45-c86a-46c0-98af-469f87fdc572"
-					(reference "U511")
+					(reference "UO511")
 					(unit 1)
 				)
 			)

@@ -6,8 +6,8 @@
 	(paper "B")
 	(title_block
 		(title "RA9704, Controls")
-		(date "2024-12-30")
-		(rev "003")
+		(date "2024-12-31")
+		(rev "004")
 		(company "Coin-Op Collection")
 		(comment 1 "Author: Brandon Arnold")
 		(comment 2 "License: CC BY-NC-SA 4.0")
@@ -8419,7 +8419,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "07176287-f1dc-48ba-b328-ce3ba31efc19")
-		(property "Reference" "U322"
+		(property "Reference" "UO322"
 			(at 221.9041 185.42 0)
 			(effects
 				(font
@@ -8527,7 +8527,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/fff27fdf-780e-4580-8f2a-71b69cb8c7b9"
-					(reference "U322")
+					(reference "UO322")
 					(unit 1)
 				)
 			)
@@ -8543,7 +8543,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "108e4f1d-417d-4c40-aa9d-c2808bf45b2f")
-		(property "Reference" "U331"
+		(property "Reference" "UO331"
 			(at 301.9141 113.03 0)
 			(effects
 				(font
@@ -8639,7 +8639,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/fff27fdf-780e-4580-8f2a-71b69cb8c7b9"
-					(reference "U331")
+					(reference "UO331")
 					(unit 1)
 				)
 			)
@@ -8786,7 +8786,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "30681833-ddb1-4ff7-af31-283c33864ce8")
-		(property "Reference" "U311"
+		(property "Reference" "UO311"
 			(at 327.66 118.11 0)
 			(effects
 				(font
@@ -8880,7 +8880,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/fff27fdf-780e-4580-8f2a-71b69cb8c7b9"
-					(reference "U311")
+					(reference "UO311")
 					(unit 1)
 				)
 			)
@@ -9093,7 +9093,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "53475965-0677-4b2a-8fc1-c275a444f3c1")
-		(property "Reference" "U39"
+		(property "Reference" "UO39"
 			(at 164.592 148.844 0)
 			(effects
 				(font
@@ -9183,7 +9183,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/fff27fdf-780e-4580-8f2a-71b69cb8c7b9"
-					(reference "U39")
+					(reference "UO39")
 					(unit 1)
 				)
 			)
@@ -9786,7 +9786,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a4435228-0f81-4c6e-81b0-1aba008c259c")
-		(property "Reference" "U320"
+		(property "Reference" "UO320"
 			(at 221.9041 57.15 0)
 			(effects
 				(font
@@ -9894,7 +9894,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/fff27fdf-780e-4580-8f2a-71b69cb8c7b9"
-					(reference "U320")
+					(reference "UO320")
 					(unit 1)
 				)
 			)
@@ -9910,7 +9910,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a4df4be1-526c-4aed-b982-dcf7d3722688")
-		(property "Reference" "U310"
+		(property "Reference" "UO310"
 			(at 164.084 83.82 0)
 			(effects
 				(font
@@ -10000,7 +10000,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/fff27fdf-780e-4580-8f2a-71b69cb8c7b9"
-					(reference "U310")
+					(reference "UO310")
 					(unit 1)
 				)
 			)
@@ -10081,7 +10081,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b954a7f9-862d-4441-95c6-900323187c93")
-		(property "Reference" "U321"
+		(property "Reference" "UO321"
 			(at 221.9041 123.19 0)
 			(effects
 				(font
@@ -10189,7 +10189,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/fff27fdf-780e-4580-8f2a-71b69cb8c7b9"
-					(reference "U321")
+					(reference "UO321")
 					(unit 1)
 				)
 			)
@@ -10270,7 +10270,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bc364648-d7df-470e-934c-8b3c862ccb9e")
-		(property "Reference" "U34"
+		(property "Reference" "UO34"
 			(at 164.338 213.868 0)
 			(effects
 				(font
@@ -10360,7 +10360,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/fff27fdf-780e-4580-8f2a-71b69cb8c7b9"
-					(reference "U34")
+					(reference "UO34")
 					(unit 1)
 				)
 			)
@@ -10376,7 +10376,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d54281e5-d878-41f0-8bb7-799e63e4e08d")
-		(property "Reference" "U38"
+		(property "Reference" "UO38"
 			(at 163.83 16.51 0)
 			(effects
 				(font
@@ -10466,7 +10466,7 @@
 		(instances
 			(project "ra9704"
 				(path "/24d3b4cf-2360-45fc-8c40-cedc8afdf9e1/fff27fdf-780e-4580-8f2a-71b69cb8c7b9"
-					(reference "U38")
+					(reference "UO38")
 					(unit 1)
 				)
 			)
