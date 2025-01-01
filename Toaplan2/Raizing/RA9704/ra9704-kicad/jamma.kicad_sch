@@ -2576,9 +2576,9 @@
 		)
 		(uuid "a3145af7-624c-493d-b22f-e5a039ec0554")
 	)
-	(text "Four large capacitors to stabilize\npower plane voltage"
+	(text "Four large capacitors to stabilize power plane \nvoltages. Also, 66 unlabeled blue 1μF ceramic \ncapacitors for this purpose are placed throughout."
 		(exclude_from_sim no)
-		(at 64.516 89.408 0)
+		(at 68.326 90.424 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3118,7 +3118,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "16V 470uF"
+		(property "Value" "16V 470μF"
 			(at 140.97 102.2349 0)
 			(effects
 				(font
@@ -3477,7 +3477,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "16V 470uF"
+		(property "Value" "16V 470μF"
 			(at 52.07 100.9649 0)
 			(effects
 				(font
@@ -3745,7 +3745,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "16V 470uF"
+		(property "Value" "16V 470μF"
 			(at 69.85 100.9649 0)
 			(effects
 				(font
@@ -3880,7 +3880,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "25V 100uF"
+		(property "Value" "25V 100μF"
 			(at 87.63 100.9649 0)
 			(effects
 				(font

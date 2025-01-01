@@ -4833,7 +4833,7 @@
 				)
 			)
 		)
-		(property "Value" "16V 10uF"
+		(property "Value" "16V 10μF"
 			(at 217.805 214.63 90)
 			(effects
 				(font
@@ -4902,7 +4902,7 @@
 				)
 			)
 		)
-		(property "Value" "16V 10uF"
+		(property "Value" "16V 10μF"
 			(at 217.805 201.93 90)
 			(effects
 				(font
@@ -5176,8 +5176,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "25V 100uF"
-			(at 312.928 70.866 90)
+		(property "Value" "25V 100μF"
+			(at 310.642 71.374 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6471,7 +6471,7 @@
 				)
 			)
 		)
-		(property "Value" "16V 10uF"
+		(property "Value" "16V 10μF"
 			(at 219.71 104.14 90)
 			(effects
 				(font
@@ -6539,7 +6539,7 @@
 				)
 			)
 		)
-		(property "Value" "16V 10uF"
+		(property "Value" "16V 10μF"
 			(at 288.544 104.14 90)
 			(effects
 				(font
@@ -7287,7 +7287,7 @@
 				)
 			)
 		)
-		(property "Value" "25V 10uF"
+		(property "Value" "25V 10μF"
 			(at 291.465 54.61 90)
 			(effects
 				(font
@@ -7355,7 +7355,7 @@
 				)
 			)
 		)
-		(property "Value" "25V 100uF"
+		(property "Value" "25V 100μF"
 			(at 315.595 49.53 90)
 			(effects
 				(font
@@ -7700,7 +7700,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "25V 100uF"
+		(property "Value" "25V 100μF"
 			(at 252.476 163.83 0)
 			(effects
 				(font
@@ -7836,7 +7836,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "25V 10uF"
+		(property "Value" "25V 10μF"
 			(at 189.23 57.7849 0)
 			(effects
 				(font
@@ -9330,7 +9330,7 @@
 				)
 			)
 		)
-		(property "Value" "25V 10uF"
+		(property "Value" "25V 10μF"
 			(at 244.856 51.054 90)
 			(effects
 				(font
@@ -9946,7 +9946,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "16V 10uF"
+		(property "Value" "16V 10μF"
 			(at 135.89 174.6249 0)
 			(effects
 				(font

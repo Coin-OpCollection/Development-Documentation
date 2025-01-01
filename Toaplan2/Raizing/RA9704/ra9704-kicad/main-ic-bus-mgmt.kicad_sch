@@ -5814,7 +5814,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "16V 10uF"
+		(property "Value" "16V 10μF"
 			(at 129.54 100.9649 0)
 			(effects
 				(font
